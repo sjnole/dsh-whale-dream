@@ -1,0 +1,35 @@
+✔ visible fields keep user ordering, allow icon-only mode and migrate old switches (1.793596ms)
+✔ preferences preserve edits across delayed host reads and retry failed writes without touching theme keys (6.118005ms)
+✔ shared session requests deduplicate, and late abandoned model replies cannot cross sessions (1.641767ms)
+✔ refresh failure preserves last good values; selection mismatches are rejected (1.111019ms)
+✔ visibility pauses timers and in-flight reads; disabling clears an open panel (1.258812ms)
+✔ a bounded cache drops dormant sessions and clearing requires an explicit success receipt (1.609859ms)
+✔ quota zero is real data, unknown prices stay unknown, and currencies never convert (13.98142ms)
+✔ summary fields retain requested order and measured fit uses all available space (5.609841ms)
+✔ unknown billing mode stays neutral despite inactive account blocks and fallback requires real data (1.359703ms)
+✔ v4 automatic defaults preserve previous custom choices, empty bars, ordering and explicit mode switches (0.267472ms)
+✔ compact summaries preserve complete descriptions, short fee scopes and true ratios without inventing denominators (1.442669ms)
+✔ daily chart keeps calendar gaps and unpriced records distinct from true zero and never mixes currencies (2.34226ms)
+✔ DS pricing requires the host schedule, marks expired boundaries pending and never presents reference rate plans as a current unknown price (2.492186ms)
+✔ DS boundary refresh uses one earlier non-forcing poll, bypasses local freshness and does not busy-loop after failure (3.700703ms)
+✔ DS daily timeline refreshes at Beijing midnight even when the next price transition is days away (0.992461ms)
+✔ automatic information chooses actual account capabilities, real zero and relevant subscription windows without placeholders (1.448988ms)
+✔ subscription balances and cloud usage retain explicitly supplied units and billing periods (0.382555ms)
+✔ scoped non-DS reference periods retain explicit rules and units, refuse unknown transitions and stale days without claiming an official DS calendar (0.881065ms)
+✔ exported information sits before each composer ring, preserves drafts across scenes and releases portals on unload (9107.065911ms)
+✔ information has an independent third settings section with durable ordered fields outside theme profiles (10152.784178ms)
+✔ configured fields fill measured spare toolbar width, collapse only overflow and remain independently switchable (9385.79068ms)
+✔ real model selection keeps subscription zero quota, USD billing and unknown account modes distinct in summary and details (4759.711891ms)
+✔ compact fields retain accessible meaning, distinct cost periods and genuine zero ratios without forcing labels into every chip (8602.670827ms)
+✔ daily charts switch currency without conversion and distinguish recorded zero, partial pricing, missing days and wholly unpriced records (3240.778459ms)
+✔ DeepSeek period, two rate plans and next transition follow the pricing snapshot while stale or unknown periods do not claim a current price (5838.28772ms)
+✔ automatic common fields follow actual account capabilities across direct APIs, an unknown gateway, subscription and cloud billing while preserving custom choices (8731.99978ms)
+✔ automatic account summaries preserve unitless GLM zero balances and actual Fireworks and Cloudflare usage units (5222.146487ms)
+ℹ tests 27
+ℹ suites 0
+ℹ pass 27
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 33947.335352

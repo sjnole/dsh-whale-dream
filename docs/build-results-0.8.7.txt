@@ -1,0 +1,37 @@
+$ npm run typecheck
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> dsh-whale-dream@0.8.7 typecheck
+> tsc --noEmit
+
+
+Exit code: 0
+
+$ npm run build
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> dsh-whale-dream@0.8.7 build
+> node build.mjs
+
+Wrapped preserved SJ 0.1.4 component: /workspace/scratch/18013f159b59/dsh-whale-dream-current/src/ring/runtime.mjs
+Built lib/client.js and host persistence for dsh-whale-dream@0.8.7
+
+Exit code: 0
+
+$ npm run preview:export
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> dsh-whale-dream@0.8.7 preview:export
+> npm run preview:build && node qa/export-preview.mjs && node qa/export-performance-selftest.mjs
+
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> dsh-whale-dream@0.8.7 preview:build
+> node qa/build.mjs
+
+QA fixture ready; loads the exact production bundle with a test host adapter.
+Self-contained preview exported: actual plugin, exact native CSS, test service adapter.
+Self-contained production-engine performance fixture: whale-dream-performance-0.8.7.html
+
+Exit code: 0
+

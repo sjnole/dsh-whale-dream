@@ -1,0 +1,74 @@
+✔ built plugin keeps a simple theme home, 38 independent appearances, dedicated theme creation and durable settings (93906.413045ms)
+✔ appearance is a first-class home section with one shared click switch, clear availability hints and durable state (43289.680454ms)
+✔ the actual HTML shows category-matched click feedback in conversation space and obeys the shared switch (55347.231187ms)
+✔ exported HTML creates themes from My themes, restores complete game and plant schemes, and reopens without model writes (49034.09437ms)
+✔ actual integrated SJ slot changes the mock model, closes its dropdown, and preserves layered dismiss behavior (3160.859843ms)
+✔ changes only a native-shaped hero headline; preserves logo, badge, history and draft nodes (60.756223ms)
+✔ follows hero transitions, delayed hero mounting and native text replacement without changing other locales (14.92425ms)
+✔ repeated mount and disposal restore owned text but preserve a later owner edit (7.753814ms)
+✔ streamed content does not rescan the page or existing scene; nested mounts and removal remain isolated (18.281776ms)
+✔ visible fields keep user ordering, allow icon-only mode and migrate old switches (1.353405ms)
+✔ preferences preserve edits across delayed host reads and retry failed writes without touching theme keys (5.097502ms)
+✔ shared session requests deduplicate, and late abandoned model replies cannot cross sessions (1.353645ms)
+✔ refresh failure preserves last good values; selection mismatches are rejected (0.953774ms)
+✔ visibility pauses timers and in-flight reads; disabling clears an open panel (0.937519ms)
+✔ a bounded cache drops dormant sessions and clearing requires an explicit success receipt (2.247257ms)
+✔ quota zero is real data, unknown prices stay unknown, and currencies never convert (13.264055ms)
+✔ summary fields retain requested order and measured fit uses all available space (4.355237ms)
+✔ unknown billing mode stays neutral despite inactive account blocks and fallback requires real data (0.77854ms)
+✔ compiled host has independent entry, fixed pricing and no updater/native UI (155.208932ms)
+✔ worker summaries preserve currencies, unknown costs, exact rolling range and durable clear (79.294647ms)
+✔ unknown providers have isolated ledgers and never inherit an unrelated bare model price (0.875807ms)
+✔ unknown/loading totals and account errors cannot be mistaken for zero or leak a secret (0.361283ms)
+▶ host routes preserve desktop auth, selection, real account snapshots, ledger and cleanup
+  ✔ host rejects unauthorized, GET mutations and removed routes before touching credentials (1.67705ms)
+  ✔ missing selection does not borrow default model or query accounts (4.695477ms)
+  ✔ OpenAI ordinary API balance remains unavailable, not a fabricated initial credit (45.928394ms)
+  ✔ API balance and stale retry preserve true amounts without exposing credential/errors (7.306432ms)
+  ✔ Codex quota keeps both real windows and cloud bill uses its real data block (4.742598ms)
+[whale-dream-info] 记账未计价（每模型仅提示一次）：model="unlisted" 价目表含该模型=false
+  ✔ stream passthrough records final usage once, includes descendants and excludes parallel sessions (9.844537ms)
+  ✔ credential mutations accept only the inline whitelist and never return a value (2.252416ms)
+  ✔ clear refuses while a model stream is active (0.497618ms)
+  ✔ streaming export includes price status and explicit clear removes records (2.944525ms)
+✔ host routes preserve desktop auth, selection, real account snapshots, ledger and cleanup (85.724671ms)
+✔ exported information sits before each composer ring, preserves drafts across scenes and releases portals on unload (8487.399953ms)
+✔ information has an independent third settings section with durable ordered fields outside theme profiles (8800.176885ms)
+✔ configured fields fill measured spare toolbar width, collapse only overflow and remain independently switchable (7781.945641ms)
+✖ real model selection keeps subscription zero quota, USD billing and unknown account modes distinct in summary and details (4642.676671ms)
+✔ the save form offers a unique ready-filled name and keeps typed drafts across prop changes (246.214569ms)
+✔ save changes updates only the current scheme; saving a copy retains the old definition (64.203698ms)
+✔ a failed first save preserves its name and retries the same local record; failed updates never claim success (53.324456ms)
+✔ finishing a save after unmount does not send stale UI feedback or onSaved callbacks (37.34219ms)
+✔ create-only recovery keeps the original record and a hidden save cannot trigger navigation (51.497705ms)
+ℹ tests 41
+ℹ suites 0
+ℹ pass 40
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 146781.844523
+
+✖ failing tests:
+
+test at tests/info-integration.test.mjs:240:1
+✖ real model selection keeps subscription zero quota, USD billing and unknown account modes distinct in summary and details (4642.676671ms)
+  AssertionError [ERR_ASSERTION]: Values have same structure but are not reference-equal:
+  
+  [
+    'demo-light',
+    'demo-chat',
+    'demo-long'
+  ]
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/18013f159b59/dsh-whale-dream-current/tests/info-integration.test.mjs:313:10)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 'demo-light', 'demo-chat', 'demo-long' ],
+    expected: [ 'demo-light', 'demo-chat', 'demo-long' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

@@ -1,0 +1,13 @@
+✔ compact fields retain accessible meaning, distinct cost periods and genuine zero ratios without forcing labels into every chip (8232.686929ms)
+✔ daily charts switch currency without conversion and distinguish recorded zero, partial pricing, missing days and wholly unpriced records (3013.827757ms)
+✔ DeepSeek period, two rate plans and next transition follow the pricing snapshot while stale or unknown periods do not claim a current price (5120.542769ms)
+✔ automatic common fields follow actual account capabilities across direct APIs, an unknown gateway, subscription and cloud billing while preserving custom choices (8511.065176ms)
+✔ automatic account summaries preserve unitless GLM zero balances and actual Fireworks and Cloudflare usage units (5049.601141ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 30342.791941

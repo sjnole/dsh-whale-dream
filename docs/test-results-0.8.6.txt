@@ -1,0 +1,75 @@
+✔ visible fields keep user ordering, allow icon-only mode and migrate old switches (2.529826ms)
+✔ preferences preserve edits across delayed host reads and retry failed writes without touching theme keys (8.135217ms)
+✔ shared session requests deduplicate, and late abandoned model replies cannot cross sessions (2.079208ms)
+✔ refresh failure preserves last good values; selection mismatches are rejected (1.386776ms)
+✔ visibility pauses timers and in-flight reads; disabling clears an open panel (1.568479ms)
+✔ a bounded cache drops dormant sessions and clearing requires an explicit success receipt (1.865786ms)
+✔ quota zero is real data, unknown prices stay unknown, and currencies never convert (18.752478ms)
+✔ summary fields retain requested order and measured fit uses all available space (6.969714ms)
+✔ unknown billing mode stays neutral despite inactive account blocks and fallback requires real data (1.836572ms)
+✔ v4 automatic defaults preserve previous custom choices, empty bars, ordering and explicit mode switches (0.299781ms)
+✔ compact summaries preserve complete descriptions, short fee scopes and true ratios without inventing denominators (2.00151ms)
+✔ daily chart keeps calendar gaps and unpriced records distinct from true zero and never mixes currencies (2.722916ms)
+✔ DS pricing requires the host schedule, marks expired boundaries pending and never presents reference rate plans as a current unknown price (2.250145ms)
+✔ DS boundary refresh uses one earlier non-forcing poll, bypasses local freshness and does not busy-loop after failure (4.978399ms)
+✔ DS daily timeline refreshes at Beijing midnight even when the next price transition is days away (1.313125ms)
+✔ automatic information chooses actual account capabilities, real zero and relevant subscription windows without placeholders (2.14055ms)
+✔ subscription balances and cloud usage retain explicitly supplied units and billing periods (0.500513ms)
+✔ scoped non-DS reference periods retain explicit rules and units, refuse unknown transitions and stale days without claiming an official DS calendar (1.175078ms)
+✔ compiled host has independent entry, fixed pricing and no updater/native UI (252.572875ms)
+✔ worker summaries preserve currencies, unknown costs, exact rolling range and durable clear (68.146792ms)
+✔ unknown providers have isolated ledgers and never inherit an unrelated bare model price (0.861676ms)
+✔ shared Beijing pricing clock handles exact boundaries, weekends and verified 2026–2027 holidays (0.697039ms)
+✔ next tariff transitions include their Beijing date and never assert unverified holiday-year peaks (0.564069ms)
+✔ tariff metadata and ledger calculation use one dated clock without assigning official identity to gateways (0.658832ms)
+✔ unknown/loading totals and account errors cannot be mistaken for zero or leak a secret (0.327083ms)
+▶ host routes preserve desktop auth, selection, real account snapshots, ledger and cleanup
+  ✔ host rejects unauthorized, GET mutations and removed routes before touching credentials (1.746409ms)
+  ✔ missing selection does not borrow default model or query accounts (4.705091ms)
+  ✔ OpenAI ordinary API balance remains unavailable, not a fabricated initial credit (57.639391ms)
+  ✔ API balance and stale retry preserve true amounts without exposing credential/errors (25.549542ms)
+  ✔ Codex quota keeps both real windows and cloud bill uses its real data block (5.451495ms)
+  ✔ Z.ai regions keep parallel quota requests, credentials and stale caches isolated (7.498025ms)
+  ✔ DeepSeek peak/offpeak DTO carries both rates, current day and the next dated switch (3.250111ms)
+[whale-dream-info] 记账未计价（每模型仅提示一次）：model="unlisted" 价目表含该模型=false
+  ✔ stream passthrough records final usage once, includes descendants and excludes parallel sessions (9.33568ms)
+  ✔ credential mutations accept only the inline whitelist and never return a value (2.660345ms)
+  ✔ clear refuses while a model stream is active (0.406121ms)
+  ✔ streaming export includes price status and explicit clear removes records (4.073361ms)
+✔ host routes preserve desktop auth, selection, real account snapshots, ledger and cleanup (128.18336ms)
+✔ exported information sits before each composer ring, preserves drafts across scenes and releases portals on unload (9089.761252ms)
+✔ information has an independent third settings section with durable ordered fields outside theme profiles (11290.001075ms)
+✔ configured fields fill measured spare toolbar width, collapse only overflow and remain independently switchable (10398.502037ms)
+✔ real model selection keeps subscription zero quota, USD billing and unknown account modes distinct in summary and details (5037.971742ms)
+✔ compact fields retain accessible meaning, distinct cost periods and genuine zero ratios without forcing labels into every chip (8762.211871ms)
+✖ daily charts switch currency without conversion and distinguish recorded zero, partial pricing, missing days and wholly unpriced records (2931.324218ms)
+✔ DeepSeek period, two rate plans and next transition follow the pricing snapshot while stale or unknown periods do not claim a current price (6335.158805ms)
+✔ automatic common fields follow actual account capabilities across direct APIs, an unknown gateway, subscription and cloud billing while preserving custom choices (9808.242994ms)
+✔ automatic account summaries preserve unitless GLM zero balances and actual Fireworks and Cloudflare usage units (4849.554213ms)
+ℹ tests 46
+ℹ suites 0
+ℹ pass 45
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 36494.60809
+
+✖ failing tests:
+
+test at tests/info-visualization-integration.test.mjs:141:1
+✖ daily charts switch currency without conversion and distinguish recorded zero, partial pricing, missing days and wholly unpriced records (2931.324218ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  '≈¥0.24' !== '¥0.24'
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/18013f159b59/dsh-whale-dream-current/tests/info-visualization-integration.test.mjs:151:10)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '≈¥0.24',
+    expected: '¥0.24',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

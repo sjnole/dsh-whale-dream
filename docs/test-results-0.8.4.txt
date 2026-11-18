@@ -1,0 +1,18 @@
+✔ built plugin keeps a simple theme home, 38 independent appearances, dedicated theme creation and durable settings (98926.686502ms)
+✔ appearance is a first-class home section with one shared click switch, clear availability hints and durable state (46868.190718ms)
+✔ the actual HTML shows category-matched click feedback in conversation space and obeys the shared switch (55506.694233ms)
+✔ exported HTML creates themes from My themes, restores complete game and plant schemes, and reopens without model writes (53807.842096ms)
+✔ actual integrated SJ slot changes the mock model, closes its dropdown, and preserves layered dismiss behavior (2363.47555ms)
+✔ the save form offers a unique ready-filled name and keeps typed drafts across prop changes (366.260077ms)
+✔ save changes updates only the current scheme; saving a copy retains the old definition (93.167425ms)
+✔ a failed first save preserves its name and retries the same local record; failed updates never claim success (65.82271ms)
+✔ finishing a save after unmount does not send stale UI feedback or onSaved callbacks (55.117757ms)
+✔ create-only recovery keeps the original record and a hidden save cannot trigger navigation (57.660613ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 103019.038882

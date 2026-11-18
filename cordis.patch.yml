@@ -1,0 +1,4 @@
+# Single package: the original two plugins should be disabled before enabling it.
+- insert:
+    - id: whale-dream
+      name: 'dsh-whale-dream'

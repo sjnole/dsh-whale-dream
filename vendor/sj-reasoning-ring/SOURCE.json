@@ -1,0 +1,22 @@
+{
+  "upstreamPackage": "dsh-sj-reasoning-ring",
+  "upstreamVersion": "0.1.4",
+  "archiveName": "dsh-sj-reasoning-ring-0.1.4.zip",
+  "archiveSHA256": "55632d1c6235612e7a57ea3aec378e736fc58142f2a53c543caa5d1412f3e4db",
+  "filesSHA256": {
+    "src/client.js": "aab2056865b493408cf01e3674aedff12c3219e677641771ded17d95ca86c085",
+    "src/core.cjs": "d3d27b92d39b79efb12c6f596547e8aa07400824d589245be2bfa03e2bbb0422",
+    "src/placement.cjs": "43e8c3cd8deba0ca94bb24d3423ac0d1462335860288aafec87e6d40bafe1dfb",
+    "src/styles.css": "55d20c4712b226ea100657109e092ea73bc567fb22f1f69a1d4d2e6c1cc8c3b7",
+    "src/icons.json": "72ff4b724b7aae87264b39ed10ff364f8a5b2c589c78dbf25442562732e144d5",
+    "package.json": "bd407839f41d0e9f62e2d5a3d0708e6aa7a90b4dbab6294f75ceb7e4f0c7a265",
+    "LICENSE": "56437cab433132c673998363b210250b3fd221adc3c27afb5ee08d539718f382",
+    "THIRD_PARTY_NOTICES.md": "597b073c1e06cab573352000b520e6e259d12e6d069ff350ee09c4142a439890",
+    "README.md": "07951595179fcb8ef29e32f02377b57cff069d8aab49929803e24382e2679c43",
+    "CHANGELOG.md": "aefc03155f2eee2b42494b44f79c81c6d8d79135d9bccca6583c52d110e46f9b",
+    "test/core.test.mjs": "99882923e06f56b544b1a45a09baba15b7d47157687e3f9fa1154ffd05734167",
+    "test/placement.test.mjs": "5c75d8d3d736ab1e84de9a30fd3e6207ca08a51083561ecb929304b73501f59f",
+    "test/component.test.mjs": "feecf2673a79984bbc67793da1df3f02fb01aba8eb86237c30e64e0dc14586e3"
+  },
+  "note": "Preserved byte-for-byte from the supplied SJ 0.1.4 source ZIP. Production uses its actual UI/core/placement; no preview fake state is included."
+}

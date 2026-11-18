@@ -1,0 +1,19 @@
+{
+  "name": "dsh-bottom-info-bar",
+  "version": "1.26.0",
+  "repository": "https://github.com/songoao25/dsh-bottom-info-bar",
+  "commit": "684beceac85120824d82c713b83e0e3e77a0eb3f",
+  "license": "MIT",
+  "copyright": "Copyright (c) 2026 songoao25",
+  "vendoredFiles": {
+    "host.js": "10827dfa1c0c78b35d6c4d798732e7c195d8951098dcd5680a1544823bf4d0e0",
+    "constants.js": "316e58eb5cb3ae15d5ecc108b71365f240275d5c6f968dabffb27eee3e2e7f59",
+    "accounting.js": "dc300be2e303ffca0f9f208751d9e6dca8ffffbfa1731a1e5597d807e2bf47a4",
+    "ledger-store.js": "6774a204836acc2b8b09806d9537827c27315b793c3c488b0a5342812595c6ea",
+    "ledger-client.js": "d90cbbc5ee95ce7ced1168e2ce99f1a13c2f7aed55d79e92d31c57565fc98afe",
+    "ledger-worker.js": "ec928afcbc214078290a49e8dbe42247068af453d573a19fe07adbb820eea0a0",
+    "host-locale.js": "a70d274646546a997a8a52872681dcd2e24cc6a6919a5970debc7ef5faf4caec",
+    "locales.js": "d53326fa2c690234760f52cde8d7ece498bb5c9859ff57a854c10c2f0ef824db"
+  },
+  "integration": "Account adapters and asynchronous ledger core only. Whale Dream supplies its own frontend, routes, data directory and fixed pricing policy. Updater, remote author pricing, native UI and original frontend are not included in runtime."
+}

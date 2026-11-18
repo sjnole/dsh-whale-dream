@@ -1,0 +1,12 @@
+✔ exported information sits before each composer ring, preserves drafts across scenes and releases portals on unload (8856.795037ms)
+✔ information has an independent third settings section with durable ordered fields outside theme profiles (8589.460798ms)
+✔ configured fields fill measured spare toolbar width, collapse only overflow and remain independently switchable (7534.695324ms)
+✔ real model selection keeps subscription zero quota, USD billing and unknown account modes distinct in summary and details (4395.246123ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 29863.679088

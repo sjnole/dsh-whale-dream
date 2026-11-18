@@ -1,0 +1,112 @@
+{
+  "name": "dsh-whale-dream",
+  "version": "0.8.71",
+  "description": "鲸梦 0.8.71：完整移除桌面伴随窗口及其原生进程、同步接口和设置入口；保留主题、动态外观、启动屏、推理圆环与信息栏。",
+  "type": "module",
+  "license": "SEE LICENSE IN LICENSE",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json",
+    "./assets/*": "./lib/assets/*"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "icon.svg",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "THIRD_PARTY_NOTICES.md",
+    "licenses",
+    "assets/fonts/OFL-*.txt",
+    "assets/fonts/README.md",
+    "vendor/ascii-kanji-sharks/LICENSE",
+    "docs",
+    "vendor/sj-reasoning-ring/LICENSE",
+    "vendor/sj-reasoning-ring/THIRD_PARTY_NOTICES.md",
+    "vendor/sj-reasoning-ring/SOURCE.json",
+    "vendor/bottom-info-bar/LICENSE",
+    "vendor/bottom-info-bar/SOURCE.json",
+    "assets/dsh-icon.png",
+    "assets/whale-brand-icon.svg",
+    "assets/hero-fish-startup.svg"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "theme",
+    "whales",
+    "dream-skin",
+    "dark-theme",
+    "light-theme"
+  ],
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-renderer",
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-theme",
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-ui-settings-general",
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-model-selection",
+        "@deepseek-ai/dsh-api-session-controller",
+        "@deepseek-ai/dsh-api-remotes",
+        "@deepseek-ai/dsh-client-ui-primitives"
+      ]
+    }
+  },
+  "scripts": {
+    "build": "node build.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test docs/qa/removal-0.8.71.mjs",
+    "check": "npm run prepack && npm test",
+    "preview:build": "node qa/build.mjs",
+    "preview": "node qa/server.mjs",
+    "prepack": "node --check lib/index.js && node --check lib/client.js && node --check lib/startup/boot.js && node --check lib/startup/host.mjs && node --check lib/startup/atlas.mjs",
+    "preview:export": "npm run preview:build && node qa/export-preview.mjs && node qa/export-performance-selftest.mjs"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "esbuild": "^0.25.0",
+    "jsdom": "^26.1.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "typescript": "^5.7.0",
+    "@napi-rs/canvas": "^0.1.60"
+  },
+  "icon": "./icon.svg",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sjnole/dsh-whale-dream.git"
+  },
+  "homepage": "https://github.com/sjnole/dsh-whale-dream#readme",
+  "bugs": {
+    "url": "https://github.com/sjnole/dsh-whale-dream/issues"
+  },
+  "author": "sjnole"
+}
