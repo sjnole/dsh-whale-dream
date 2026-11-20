@@ -6,6 +6,8 @@
 
 # 鲸梦主题 · Whale Dream 0.8.71
 
+[功能截图](#功能截图) · [Windows 安装](#安装到-windows-官方桌面版) · [问题反馈](#问题反馈)
+
 把 **Dream Skin 的主题与壁纸**、**ASCII Whales 的海洋动画**、**SJ 推理圆环 0.1.4** 和 **账户用量信息栏**整合到一个 DSH 插件中。当前共 **7 类、38 种外观**，包含分享方案中的全部 20 项。主题与外观独立，支持多色渐变、自定义完整方案、按分钟更换外观和点击互动。
 
 **延续的信息栏功能：每项只用一种识别方式，费用保留短范围、余额保留钱包图标；DS 状态压缩为「空闲 · 16h54m后高峰」这样的短提示。** 有内容时不重复显示总统计图标，完整说明保留在悬停和详情中。信息栏位于输入框内 SJ 圆环左侧，新旧会话共用；自动适配、自选 14 项和三个同级设置页继续保留。
@@ -15,6 +17,26 @@
 **素材许可提醒：** 新透明动画由上传的 0.8.41 包内 DSH PixelWhale 帧图派生用于本地个人安装。其上游 artwork 可能包含第三方权利；在向 GitHub / dsh-market 公开分发这个 TGZ 之前，应核实该动画素材的独立再分发许可。
 
 包名为 `dsh-whale-dream`。这是独立整合版，保留各原作者署名与许可，不是 DSH 或上游插件的官方新版本。适配基线为官方 **DSH 0.2.2-rc.3**，宿主 Node.js 最低要求为 **22.13.0**。实际验证记录与边界见 [docs/VALIDATION.md](docs/VALIDATION.md)。
+
+## 功能截图
+
+以下截图来自 **鲸梦 0.8.85 Windows 测试版**，展示主题配色、动态外观、信息栏和实况窗设置。本文的安装步骤对应仓库当前的 **0.8.71**。
+
+### 主题配色
+
+![鲸梦主题配色页，显示当前主题、主题预览和自定义主题入口](screenshots/whale-dream-0.8.85/theme-colors.png)
+
+### 外观与动态
+
+![鲸梦外观与动态页，显示外观分类和动画预览](screenshots/whale-dream-0.8.85/animated-appearances.png)
+
+### 信息栏配置
+
+![鲸梦信息栏设置，展示会话中可显示的模型、费用、用量和状态选项](screenshots/whale-dream-0.8.85/information-bar.png)
+
+### 实况窗设置
+
+![鲸梦实况窗设置，包含停靠位置、形状和收起时的显示选项](screenshots/whale-dream-0.8.85/live-window-settings.png)
 
 ## 安装到 Windows 官方桌面版
 
@@ -214,6 +236,13 @@ npm pack
 ```
 
 安装包已包含客户端代码和所需字体，最终用户无需运行构建命令。
+
+## 问题反馈
+
+- 遇到故障或显示异常？[报告问题](https://github.com/sjnole/dsh-whale-dream/issues/new?template=bug-report.yml)
+- 有想改进的功能或交互？[提交建议](https://github.com/sjnole/dsh-whale-dream/issues/new?template=feature-request.yml)
+
+提交前可以先查看[已有反馈](https://github.com/sjnole/dsh-whale-dream/issues?q=is%3Aissue)，看看是否已有相同问题。反馈会公开显示，上传截图或日志前请遮盖 API 密钥、账户信息和私人对话。
 
 ## 来源与许可
 

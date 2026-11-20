@@ -1,0 +1,32 @@
+name: 问题反馈
+description: 报告鲸梦的故障、显示异常或兼容性问题。
+title: "[问题] "
+body:
+  - type: input
+    id: versions
+    attributes:
+      label: 使用环境
+      description: 请填写鲸梦版本、DeepSeek Harness 版本和操作系统。
+      placeholder: 鲸梦 0.8.71，DSH 0.2.2-rc.3，Windows 11 桌面版
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: 复现步骤
+      description: 写下出问题的位置及触发它的操作。
+      placeholder: 打开设置 → 鲸梦主题 → ……
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: 实际表现和预期表现
+      description: 说明看到了什么，以及正常情况下会怎样。
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 截图或日志
+      description: 如有帮助可以附上。请先遮盖 API 密钥、账户信息和私人对话。

@@ -1,0 +1,18 @@
+name: 功能建议
+description: 建议改进鲸梦的功能、界面或使用体验。
+title: "[建议] "
+body:
+  - type: textarea
+    id: scenario
+    attributes:
+      label: 使用场景
+      description: 说说你正在用鲸梦完成什么，以及遇到的不便。
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 希望怎样改进
+      description: 可以描述预期效果，或附上参考截图。
+    validations:
+      required: true
