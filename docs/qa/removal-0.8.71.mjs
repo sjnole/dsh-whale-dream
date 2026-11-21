@@ -19,7 +19,7 @@ const paths=['bin/whale-companion-win-x64.exe','lib/companion/native-host.mjs','
 
 test('Whale Dream version and package entry remain valid',()=>{
   assert.equal(manifest.name,'dsh-whale-dream');
-  assert.equal(manifest.version,'0.9.0');
+  assert.equal(manifest.version,'1.0.0');
   assert.equal(manifest.main,'lib/index.js');
   assert.equal(manifest.exports['./client'],'./lib/client.js');
   assert.ok(manifest.files.includes('lib'));

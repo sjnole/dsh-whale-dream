@@ -1,7 +1,7 @@
 {
     "name":  "dsh-whale-dream",
-    "version":  "0.9.0",
-    "description":  "鲸梦：主题、动态外观、启动屏、推理圆环、信息栏和 Windows 实况窗。",
+    "version":  "1.0.0",
+    "description":  "鲸梦：主题、动态外观、启动屏、推理圆环、信息栏和实况窗。",
     "type":  "module",
     "license":  "SEE LICENSE IN LICENSE",
     "main":  "lib/index.js",

@@ -1,6 +1,6 @@
-# 鲸梦 0.8.8 安装、升级与恢复
+# 鲸梦 1.0.0 安装、升级与恢复
 
-本文适用于以官方 DSH **0.2.2-rc.3** 为接口基线的 `dsh-whale-dream-0.8.8.tgz`。配套完整包为 `dsh-whale-dream-0.8.8-complete.zip`，HTML 预览为 `whale-dream-preview-0.8.8-r1.html`。完整 ZIP 包含安装文件和源码，实际交给插件管理器安装的是 `.tgz`。
+本文适用于以官方 DSH **0.2.2-rc.3** 为接口基线的 `dsh-whale-dream-1.0.0.tgz`。在 DSH 插件管理器中选择 `.tgz` 安装。
 
 ## Windows Desktop：从客户端安装
 
@@ -10,11 +10,11 @@
 4. 输入 `.tgz` 的实际绝对路径。例如：
 
    ```text
-   C:\Users\你的用户名\Downloads\dsh-whale-dream-0.8.8.tgz
+   C:\Users\你的用户名\Downloads\dsh-whale-dream-1.0.0.tgz
    ```
 
    只输入路径，不输入 `dsh plugin add` 命令。Windows 复制地址产生的外围双引号应去掉。
-5. 点击 **安装**。完成后核对包名 `dsh-whale-dream` 与版本 `0.8.8`，点击 **立即启用**。
+5. 点击 **安装**。完成后核对包名 `dsh-whale-dream` 与版本 `1.0.0`，点击 **立即启用**。
 6. 从独立插件切换或升级后，完成当前工作，再从 Windows 托盘右键 **退出 DeepSeek Harness**，重开客户端。
 7. 打开 **设置 → 鲸梦主题**。首页有「主题配色 / 外观与动态 / 信息栏」三个同级页，分别选择主题、外观和信息栏常显内容。创建主题从「主题配色 → 我的方案 → 创建新主题」进入，在配色、背景和圆环中调整，再用页底「保存当前搭配」中的「保存方案」完成；保存后回到我的方案。
 
@@ -22,16 +22,20 @@
 
 来源：[官方插件管理界面](https://github.com/deepseek-ai/deepseek-harness/blob/dsh-v0.2.2-rc.3/packages/client/ui-plugin-manager/README.zh.md)、[Desktop 运行时与退出行为](https://github.com/deepseek-ai/deepseek-harness/blob/dsh-v0.2.2-rc.3/apps/desktop/README.zh.md)。
 
+## Mac 桌面版
+
+Apple 芯片 Mac 使用官方 DSH 桌面版的「添加插件」，选择同名 `.tgz` 并启用，再按 ⌘Q 退出并重开。安装包包含 macOS arm64 原生组件时，可从 **设置 → 鲸梦主题 → 实况窗** 启用。见[Mac 构建与验收](MACOS-BUILD.zh-CN.md)。
+
 ## 从旧鲸梦升级
 
 官方插件页会拒绝重复添加已安装的同名包。从本地路径/压缩包安装的包，也不会显示注册表版本更新区块。因此从旧鲸梦版本（包括 0.8.6）升级时：
 
 1. 保留 `whale-dream.json` 和 DSH 数据目录；已有壁纸文件也保留。
 2. 在插件管理中卸载旧 `dsh-whale-dream`。
-3. 按上面的步骤安装 `dsh-whale-dream-0.8.8.tgz` 并立即启用。
+3. 按上面的步骤安装 `dsh-whale-dream-1.0.0.tgz` 并立即启用。
 4. 完整退出并重开，检查设置页和插件管理页的版本。
 
-升级到 0.8.8 后仍沿用以下旧配置兼容规则：
+升级后仍沿用以下旧配置兼容规则。
 
 - 当前外观或已存方案中的飞燕、蝴蝶、小猫、赤狐、林鹿回退为座头鲸，保留名称、主题配色、背景与其他偏好；当前共有 7 类 38 种，新增的四类各 5 种可以在「外观与动态」直接选择。
 - 原来已开启每日随机、且没有分钟间隔字段的配置迁移为每 1440 分钟更换，首次载入时开始计时。新配置的默认间隔是 60 分钟，仍默认固定使用；在「外观与动态」选择「按间隔更换」后可改为 1–10080 整数分钟。点击外观卡片会固定使用该外观。
