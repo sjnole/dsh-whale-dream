@@ -4,6 +4,9 @@ Whale Dream is a custom integration, not an official update from DSH, Dream Skin
 
 | Component | Pinned source | Terms |
 | --- | --- | --- |
+| xiaotang-daozai 0.6.66 | https://github.com/Renly1994/xiaotang-daozai / `08250c583dfda4fe3643af9e27cc93221b4170e9` | MIT. The Windows island renderer, capsule animation and page interaction are adapted for Whale Dream's session view. See `licenses/xiaotang-daozai-LICENSE` and `licenses/xiaotang-daozai-NOTICES.txt`. |
+| pulldown-cmark 0.13.4 and unicase 2.10.0 | https://crates.io/crates/pulldown-cmark/0.13.4 and https://crates.io/crates/unicase/2.10.0 | Markdown parsing in the Windows live window. Pulldown-cmark uses MIT and unicase offers MIT or Apache-2.0. See `licenses/pulldown-cmark-LICENSE`, `licenses/unicase-LICENSE-MIT` and `licenses/unicase-LICENSE-APACHE`. |
+| DeepSeek Harness desktop icons | Installed `@deepseek-ai/dsh-web-frontend` build, exports `FISH_LOGO_PATH` / `FISH_LOGO_VIEWBOX` and `IconNewChatOutlineRegular` | The source SVG paths are rendered at their original aspect ratios in the live window. See `licenses/deepseek-harness-LICENSE`. |
 | dsh-ascii-whales 0.1.6 | https://github.com/Chael-Chael/dsh-ascii-whales / `fdcc976f7d66245b7e0c3d5f81018c5a109d56a6` | MIT for the original DSH integration only; see licenses/dsh-ascii-whales-LICENSE. |
 | dsh-dream-skin 11.7.0 | https://gitcode.com/LLLAAAAA/dsh-dream-skin.git / `50fbbcb9b73712e76adf7601c68cae4484390ab1` | MIT; see licenses/dsh-dream-skin-LICENSE. npm archive integrity and original source hashes are retained in src/dream/vendor/PROVENANCE.json in the source distribution. |
 | dsh-sj-reasoning-ring 0.1.4 | Supplied source ZIP; SHA-256 `55632d1c6235612e7a57ea3aec378e736fc58142f2a53c543caa5d1412f3e4db`. Per-file hashes in `vendor/sj-reasoning-ring/SOURCE.json`. | MIT; copyright (c) 2026 dsh-codex-effort-slider contributors and (c) 2026 SJ. Full terms: `vendor/sj-reasoning-ring/LICENSE`. |

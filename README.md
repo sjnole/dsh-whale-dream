@@ -1,12 +1,10 @@
-## 鲸梦 0.8.71 · 移除桌面伴随
+## 鲸梦 0.9.0 · 实况窗
 
-本版完全移除 Windows 桌面伴随窗口、会话悬浮队列、原生 EXE 与 WebView2 / DirectComposition 桥接及对应设置项。
-保留鲸梦主题配色、动态外观（包括「机械与小伙伴」）、启动首屏动画、SJ 推理圆环和账户用量信息栏。
-安装前完整退出 DSH，包括系统托盘进程；否则旧版本的桌面伴随进程可能继续运行。
+在 Windows x64 的 **设置 → 鲸梦主题 → 实况窗** 打开「显示实况窗」。实况窗沿屏幕顶部停靠，可以左右拖动，也可拖到另一台显示器。松手后会保存显示器和横向位置。展开后可查看最近回复、模型名称和会话用量，按 Enter 发送回复。点击会话标题或旁边的斜箭头图标可在 DSH 打开当前会话。设置页可调整形状、收起信息和完成提示音。[使用与验收流程](docs/LIVE-WINDOW-0.9.0.zh-CN.md)
 
-# 鲸梦主题 · Whale Dream 0.8.71
+主窗口的附件卡显示文件类型、名称和大小，图片显示缩略图。实况窗支持把文件拖到回复区，或用 Ctrl+V 粘贴资源管理器中的文件和剪贴板图片。两处按会话共用草稿文字和附件。
 
-[功能截图](#功能截图) · [Windows 安装](#安装到-windows-官方桌面版) · [问题反馈](#问题反馈)
+# 鲸梦主题 · Whale Dream 0.9.0
 
 把 **Dream Skin 的主题与壁纸**、**ASCII Whales 的海洋动画**、**SJ 推理圆环 0.1.4** 和 **账户用量信息栏**整合到一个 DSH 插件中。当前共 **7 类、38 种外观**，包含分享方案中的全部 20 项。主题与外观独立，支持多色渐变、自定义完整方案、按分钟更换外观和点击互动。
 
@@ -18,44 +16,24 @@
 
 包名为 `dsh-whale-dream`。这是独立整合版，保留各原作者署名与许可，不是 DSH 或上游插件的官方新版本。适配基线为官方 **DSH 0.2.2-rc.3**，宿主 Node.js 最低要求为 **22.13.0**。实际验证记录与边界见 [docs/VALIDATION.md](docs/VALIDATION.md)。
 
-## 功能截图
-
-以下截图来自 **鲸梦 0.8.85 Windows 测试版**，展示主题配色、动态外观、信息栏和实况窗设置。本文的安装步骤对应仓库当前的 **0.8.71**。
-
-### 主题配色
-
-![鲸梦主题配色页，显示当前主题、主题预览和自定义主题入口](screenshots/whale-dream-0.8.85/theme-colors.png)
-
-### 外观与动态
-
-![鲸梦外观与动态页，显示外观分类和动画预览](screenshots/whale-dream-0.8.85/animated-appearances.png)
-
-### 信息栏配置
-
-![鲸梦信息栏设置，展示会话中可显示的模型、费用、用量和状态选项](screenshots/whale-dream-0.8.85/information-bar.png)
-
-### 实况窗设置
-
-![鲸梦实况窗设置，包含停靠位置、形状和收起时的显示选项](screenshots/whale-dream-0.8.85/live-window-settings.png)
-
 ## 安装到 Windows 官方桌面版
 
 使用客户端内的插件管理安装本地 `.tgz` 即可，无需另装 Node、npm 或 pnpm。
 
-1. 下载 `dsh-whale-dream-0.8.71.tgz`，**不要解压这个文件**。完整 ZIP 则先解压 ZIP，再取出里面的 `.tgz`。
+1. 下载 `dsh-whale-dream-0.9.0.tgz`，**不要解压这个文件**。完整 ZIP 则先解压 ZIP，再取出里面的 `.tgz`。
 2. 打开 DSH 左侧 **插件 → 已安装**。如果仍启用了独立的 `dsh-dream-skin`、`dsh-ascii-whales`、`dsh-sj-reasoning-ring`、旧 `dsh-codex-effort-slider` 或 `dsh-bottom-info-bar`，先关闭其组合包开关，避免重复主题、画布、圆环和信息入口。保留原配置即可。
 3. 点击 **添加插件**，输入安装包的完整路径，例如：
 
    ```text
-   C:\Users\你的用户名\Downloads\dsh-whale-dream-0.8.71.tgz
+   C:\Users\你的用户名\Downloads\dsh-whale-dream-0.9.0.tgz
    ```
 
    输入框只填实际路径；“复制文件地址”带有外围双引号时，去掉这两个引号。
-4. 点击 **安装**，核对完成页上的版本为 **0.8.71**，再点击 **立即启用**。直接关闭完成页会保留“已安装但未启用”的状态。
+4. 点击 **安装**，核对完成页上的版本为 **0.9.0**，再点击 **立即启用**。直接关闭完成页会保留“已安装但未启用”的状态。
 5. 首次从独立插件切换或升级后，完成当前工作，从 Windows 托盘右键 **退出 DeepSeek Harness**，然后重开。关闭主窗口的 × 会隐藏窗口，不能代替完整退出。
 6. 打开 **设置 → 鲸梦主题**。在「主题配色」选择默认主题，在「外观与动态」选择七类外观，在独立「信息栏」页勾选常显内容；自定义主题从「我的方案 → 创建新主题」进入。
 
-**已有旧鲸梦时：** 本地压缩包没有注册表版本更新入口，重复添加同名包也会被拒绝。先在插件页卸载旧 `dsh-whale-dream`，再安装 0.8.45；保留 DSH 数据目录及 `whale-dream.json`。独立原插件只需停用，不需要清空其设置。
+**已有旧鲸梦时**，先在插件页卸载旧 `dsh-whale-dream`，再安装 0.9.0。保留 DSH 数据目录及 `whale-dream.json`。独立原插件只需停用。
 
 这些入口及 tarball 支持来自 [DSH 官方插件管理说明](https://github.com/deepseek-ai/deepseek-harness/blob/dsh-v0.2.2-rc.3/packages/client/ui-plugin-manager/README.zh.md)；完整退出行为来自 [官方 Desktop 说明](https://github.com/deepseek-ai/deepseek-harness/blob/dsh-v0.2.2-rc.3/apps/desktop/README.zh.md#closing-the-window-and-quitting)。更多安装、升级与恢复步骤见 [docs/INSTALL.zh-CN.md](docs/INSTALL.zh-CN.md)。
 
@@ -64,7 +42,7 @@
 在运行 DSH Web 的机器上，把本地安装包加入对应 Web profile：
 
 ```sh
-dsh plugin --profile web add "/实际路径/dsh-whale-dream-0.8.71.tgz"
+dsh plugin --profile web add "/实际路径/dsh-whale-dream-0.9.0.tgz"
 ```
 
 然后重新启动对应的 `dsh web` 进程，并刷新页面。Web 和 Desktop 的插件安装及启用状态分别管理。连接远端 Web Host 时，路径必须是 **Host 机器上的实际路径**。
@@ -236,13 +214,6 @@ npm pack
 ```
 
 安装包已包含客户端代码和所需字体，最终用户无需运行构建命令。
-
-## 问题反馈
-
-- 遇到故障或显示异常？[报告问题](https://github.com/sjnole/dsh-whale-dream/issues/new?template=bug-report.yml)
-- 有想改进的功能或交互？[提交建议](https://github.com/sjnole/dsh-whale-dream/issues/new?template=feature-request.yml)
-
-提交前可以先查看[已有反馈](https://github.com/sjnole/dsh-whale-dream/issues?q=is%3Aissue)，看看是否已有相同问题。反馈会公开显示，上传截图或日志前请遮盖 API 密钥、账户信息和私人对话。
 
 ## 来源与许可
 
