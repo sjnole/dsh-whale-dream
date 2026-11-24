@@ -1,12 +1,12 @@
-## 鲸梦 1.0.0 · 实况窗
+## 鲸梦 1.0.1 · 实况窗
 
-在官方 DSH 桌面版的 **设置 → 鲸梦主题 → 实况窗** 打开「显示实况窗」。实况窗沿屏幕顶部停靠，可以左右拖动，也可拖到另一台显示器。松手后会保存显示器和横向位置。展开后可查看最近回复、模型名称和会话用量，按 Enter 发送回复。点击会话标题或旁边的斜箭头图标可在 DSH 打开当前会话。设置页可调整形状、收起信息和完成提示音。[使用与验收流程](docs/LIVE-WINDOW-1.0.0.zh-CN.md)
+在官方 DSH 桌面版的 **设置 → 鲸梦主题 → 实况窗** 打开「显示实况窗」。实况窗沿屏幕顶部停靠，可以左右拖动，也可拖到另一台显示器。松手后会保存显示器和横向位置。展开后可查看最近回复、模型名称和会话用量，按 Enter 发送回复。点击会话标题或旁边的斜箭头图标可在 DSH 打开当前会话。设置页可调整形状、收起信息和完成提示音。[使用与验收流程](docs/LIVE-WINDOW-1.0.1.zh-CN.md)
 
 Mac 对应 Apple 芯片，原生实况窗需要包含 macOS 组件的安装包。[Mac 构建与验收](docs/MACOS-BUILD.zh-CN.md)
 
 主窗口的附件卡显示文件类型、名称和大小，图片显示缩略图。实况窗支持把文件拖到回复区，或用 Ctrl+V 粘贴资源管理器中的文件和剪贴板图片。两处按会话共用草稿文字和附件。
 
-# 鲸梦主题 · Whale Dream 1.0.0
+# 鲸梦主题 · Whale Dream 1.0.1
 
 把 **Dream Skin 的主题与壁纸**、**ASCII Whales 的海洋动画**、**SJ 推理圆环 0.1.4** 和 **账户用量信息栏**整合到一个 DSH 插件中。当前共 **7 类、38 种外观**，包含分享方案中的全部 20 项。主题与外观独立，支持多色渐变、自定义完整方案、按分钟更换外观和点击互动。
 
@@ -22,21 +22,21 @@ Mac 对应 Apple 芯片，原生实况窗需要包含 macOS 组件的安装包�
 
 使用客户端内的插件管理安装本地 `.tgz` 即可，无需另装 Node、npm 或 pnpm。
 
-1. 下载 `dsh-whale-dream-1.0.0.tgz`，**不要解压这个文件**。Mac 需要包含 macOS arm64 原生组件的包才能启用实况窗。
+1. 下载 `dsh-whale-dream-1.0.1.tgz`，**不要解压这个文件**。Mac 需要包含 macOS arm64 原生组件的包才能启用实况窗。
 2. 打开 DSH 左侧 **插件 → 已安装**。如果仍启用了独立的 `dsh-dream-skin`、`dsh-ascii-whales`、`dsh-sj-reasoning-ring`、旧 `dsh-codex-effort-slider` 或 `dsh-bottom-info-bar`，先关闭其组合包开关，避免重复主题、画布、圆环和信息入口。保留原配置即可。
 3. 点击 **添加插件**，输入安装包的完整路径，例如：
 
    ```text
-   C:\Users\你的用户名\Downloads\dsh-whale-dream-1.0.0.tgz
-   /Users/你的用户名/Downloads/dsh-whale-dream-1.0.0.tgz
+   C:\Users\你的用户名\Downloads\dsh-whale-dream-1.0.1.tgz
+   /Users/你的用户名/Downloads/dsh-whale-dream-1.0.1.tgz
    ```
 
    输入框只填实际路径；“复制文件地址”带有外围双引号时，去掉这两个引号。
-4. 点击 **安装**，核对完成页上的版本为 **1.0.0**，再点击 **立即启用**。直接关闭完成页会保留“已安装但未启用”的状态。
+4. 点击 **安装**，核对完成页上的版本为 **1.0.1**，再点击 **立即启用**。直接关闭完成页会保留“已安装但未启用”的状态。
 5. 首次从独立插件切换或升级后，完成当前工作，Windows 从托盘退出 DSH，Mac 使用 ⌘Q。再重新打开 DSH。
 6. 打开 **设置 → 鲸梦主题**。在「主题配色」选择默认主题，在「外观与动态」选择七类外观，在独立「信息栏」页勾选常显内容；自定义主题从「我的方案 → 创建新主题」进入。
 
-**已有旧鲸梦时**，先在插件页卸载旧 `dsh-whale-dream`，再安装 1.0.0。保留 DSH 数据目录及 `whale-dream.json`。独立原插件只需停用。
+**已有旧鲸梦时**，先在插件页卸载旧 `dsh-whale-dream`，再安装 1.0.1。保留 DSH 数据目录及 `whale-dream.json`。独立原插件只需停用。
 
 这些入口及 tarball 支持来自 [DSH 官方插件管理说明](https://github.com/deepseek-ai/deepseek-harness/blob/dsh-v0.2.2-rc.3/packages/client/ui-plugin-manager/README.zh.md)；完整退出行为来自 [官方 Desktop 说明](https://github.com/deepseek-ai/deepseek-harness/blob/dsh-v0.2.2-rc.3/apps/desktop/README.zh.md#closing-the-window-and-quitting)。更多安装、升级与恢复步骤见 [docs/INSTALL.zh-CN.md](docs/INSTALL.zh-CN.md)。
 
@@ -45,7 +45,7 @@ Mac 对应 Apple 芯片，原生实况窗需要包含 macOS 组件的安装包�
 在运行 DSH Web 的机器上，把本地安装包加入对应 Web profile：
 
 ```sh
-dsh plugin --profile web add "/实际路径/dsh-whale-dream-1.0.0.tgz"
+dsh plugin --profile web add "/实际路径/dsh-whale-dream-1.0.1.tgz"
 ```
 
 然后重新启动对应的 `dsh web` 进程，并刷新页面。Web 和 Desktop 的插件安装及启用状态分别管理。连接远端 Web Host 时，路径必须是 **Host 机器上的实际路径**。

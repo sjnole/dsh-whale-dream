@@ -1,4 +1,4 @@
-# 鲸梦 1.0.0 · Mac 构建与验收
+# 鲸梦 1.0.1 · Mac 构建与验收
 
 适配目标为 Apple 芯片 Mac、macOS 13 或以上，以及官方 DeepSeek Harness 桌面版。Mac 与 Windows 共用插件包、设置和实况窗界面。Mac 端从包内的 `native/macos-arm64/whale-live-window` 加载原生组件。
 
@@ -10,7 +10,7 @@
 bash scripts/build-macos-release.sh
 ```
 
-脚本运行实况窗测试，构建并校验 arm64 程序，保留可执行权限，并把安装包写入 `macos-dist/dsh-whale-dream-1.0.0.tgz`。默认临时签名用于本机开发测试。具备发布证书时，可通过 `WHALE_MACOS_SIGN_IDENTITY` 指定签名身份。对外分发前，需用实际发布包验证签名、公证和从下载到启动的完整流程。
+脚本运行实况窗测试，构建并校验 arm64 程序，保留可执行权限，并把安装包写入 `macos-dist/dsh-whale-dream-1.0.1.tgz`。默认临时签名用于本机开发测试。具备发布证书时，可通过 `WHALE_MACOS_SIGN_IDENTITY` 指定签名身份。对外分发前，需用实际发布包验证签名、公证和从下载到启动的完整流程。
 
 ## 在 Mac 上验收
 
