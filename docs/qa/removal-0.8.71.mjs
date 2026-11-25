@@ -19,7 +19,7 @@ const paths=['bin/whale-companion-win-x64.exe','lib/companion/native-host.mjs','
 
 test('Whale Dream version and package entry remain valid',()=>{
   assert.equal(manifest.name,'dsh-whale-dream');
-  assert.equal(manifest.version,'1.0.1');
+  assert.equal(manifest.version,'1.2.4');
   assert.equal(manifest.main,'lib/index.js');
   assert.equal(manifest.exports['./client'],'./lib/client.js');
   assert.ok(manifest.files.includes('lib'));
@@ -83,7 +83,7 @@ test('Host persistence GET/SET still works, but deleted companion API methods re
     const get=await post({method:'get'});
     assert.equal(get.code,200);assert.equal(get.body.value['dsh-dream-skin:skin'],'nebula');
     const companion = await post({method:'companion-get'});
-    assert.deepEqual(companion.body, {ok:true,value:{supported:false,enabled:false,autoCollapse:true,reducedMotion:false,showDetails:true,topPosition:0,shape:'pill',collapsedDisplay:'amount',completionSound:true,completionFlash:true,ready:false,error:''}});
+    assert.deepEqual(companion.body, {ok:true,value:{supported:false,enabled:false,autoCollapse:true,reducedMotion:false,showDetails:true,topPosition:0,shape:'pill',collapsedDisplay:'amount',completionSound:true,completionFlash:true,presentationMode:false,ready:false,error:''}});
     assert.equal((await post({method:'companion-set',enabled:true})).code,409);
     for(const method of ['companion-push','companion-clear','companion-state','companion-command','companion-diagnostics','companion-native-status']){
       const r=await post({method});assert.equal(r.code,404,method);assert.equal(r.body.error.code,'not-found',method);

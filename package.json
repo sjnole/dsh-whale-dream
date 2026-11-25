@@ -1,6 +1,6 @@
 {
     "name":  "dsh-whale-dream",
-    "version":  "1.0.1",
+    "version":  "1.2.4",
     "description":  "鲸梦：主题、动态外观、启动屏、推理圆环、信息栏和实况窗。",
     "type":  "module",
     "license":  "SEE LICENSE IN LICENSE",
@@ -53,9 +53,11 @@
                                               "@deepseek-ai/dsh-client-ui-conversation",
                                               "@deepseek-ai/dsh-client-ui-session",
                                               "@deepseek-ai/dsh-client-ui-workspace",
+                                              "@deepseek-ai/dsh-client-ui-sidebar-right",
                                               "@deepseek-ai/dsh-client-ui-model-selection",
                                               "@deepseek-ai/dsh-api-session-controller",
                                               "@deepseek-ai/dsh-api-workspace-controller",
+                                              "@deepseek-ai/dsh-api-workspace-files",
                                               "@deepseek-ai/dsh-api-remotes",
                                               "@deepseek-ai/dsh-client-ui-primitives"
                                           ]
@@ -68,7 +70,7 @@
                     "check":  "npm run prepack \u0026\u0026 npm test",
                     "preview:build":  "node qa/build.mjs",
                     "preview":  "node qa/server.mjs",
-                    "prepack":  "node --check lib/index.js \u0026\u0026 node --check lib/client.js \u0026\u0026 node --check lib/desktop-companion.js \u0026\u0026 node --check lib/companion-draft.js \u0026\u0026 node --check lib/companion-usage.js \u0026\u0026 node --check lib/companion-interaction.js \u0026\u0026 node --check lib/info/index.js \u0026\u0026 node --check lib/startup/boot.js \u0026\u0026 node --check lib/startup/host.mjs \u0026\u0026 node --check lib/startup/atlas.mjs",
+                    "prepack":  "node --check lib/index.js \u0026\u0026 node --check lib/client.js \u0026\u0026 node --check lib/attachment-references.js \u0026\u0026 node --check lib/attachment-composer.js \u0026\u0026 node --check lib/image-origins.js \u0026\u0026 node --check lib/session-files.js \u0026\u0026 node --check lib/file-history-browser.js \u0026\u0026 node --check lib/file-history-browser-formats.js \u0026\u0026 node --check lib/desktop-companion.js \u0026\u0026 node --check lib/companion-draft.js \u0026\u0026 node --check lib/companion-usage.js \u0026\u0026 node --check lib/companion-interaction.js \u0026\u0026 node --check lib/info/index.js \u0026\u0026 node --check lib/startup/boot.js \u0026\u0026 node --check lib/startup/host.mjs \u0026\u0026 node --check lib/startup/atlas.mjs",
                     "preview:export":  "npm run preview:build \u0026\u0026 node qa/export-preview.mjs \u0026\u0026 node qa/export-performance-selftest.mjs"
                 },
     "peerDependencies":  {
