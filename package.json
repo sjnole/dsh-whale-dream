@@ -1,6 +1,6 @@
 {
     "name":  "dsh-whale-dream",
-    "version":  "1.2.4",
+    "version":  "1.3.0",
     "description":  "鲸梦：主题、动态外观、启动屏、推理圆环、信息栏和实况窗。",
     "type":  "module",
     "license":  "SEE LICENSE IN LICENSE",
@@ -9,7 +9,8 @@
                     ".":  "./lib/index.js",
                     "./client":  "./lib/client.js",
                     "./package.json":  "./package.json",
-                    "./assets/*":  "./lib/assets/*"
+                    "./assets/*":  "./lib/assets/*",
+                    "./assets/profile/*":  "./lib/profile/assets/*"
                 },
     "files":  [
                   "lib",
@@ -32,7 +33,8 @@
                   "vendor/bottom-info-bar/SOURCE.json",
                   "assets/dsh-icon.png",
                   "assets/whale-brand-icon.svg",
-                  "assets/hero-fish-startup.svg"
+                  "assets/hero-fish-startup.svg",
+                  "build.mjs"
               ],
     "engines":  {
                     "node":  "\u003e=22.13.0"

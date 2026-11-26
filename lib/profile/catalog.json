@@ -1,0 +1,2143 @@
+{
+  "schemaVersion": 1,
+  "version": "v5-4c3448fbb8a0",
+  "duration": 8,
+  "themes": [
+    {
+      "id": "humpback",
+      "name": "座头鲸",
+      "category": "animal",
+      "action": "尾部推进与滑行；框沿水流、波峰卷曲回落、浪沫铺开；水下表面与海床折射流动",
+      "actionLayers": [
+        "动物身体与胸鳍",
+        "框沿水体与浪头",
+        "水下表面折射与连续海流"
+      ],
+      "files": {
+        "environment-compact.mp4": {
+          "bytes": 100360,
+          "sha256": "a46ce02d048597118d432d83a13596811b4bc9b43b6002b6178dde980dd8463d",
+          "mime": "video/mp4"
+        },
+        "environment.jpg": {
+          "bytes": 184887,
+          "sha256": "cd10657d58e75bf91b26b756ced0cfc5cde2f3e27148b89e285c9296bec35ae3",
+          "mime": "image/jpeg"
+        },
+        "frame-compact.webm": {
+          "bytes": 202324,
+          "sha256": "2d3aef674e02ed4585e89566e5a699a740cffc1e22428e19c5b2f7cb06b16e8c",
+          "mime": "video/webm"
+        },
+        "frame-still.png": {
+          "bytes": 333487,
+          "sha256": "bce2c4a8a2a9ca0a7c2c403c7e3d6c7e538ddf52be60cb71c1a6fdf35eacf32a",
+          "mime": "image/png"
+        },
+        "portrait-mask.png": {
+          "bytes": 1231,
+          "sha256": "e2155d98caf887c0109afd85ada0463eb60b63255311fc9cfadb937d2217c38e",
+          "mime": "image/png"
+        },
+        "subject-compact.webm": {
+          "bytes": 287594,
+          "sha256": "be07db77b6202bb303ad158c4b4960ddca0f72e888352badfb9f41317b593b8a",
+          "mime": "video/webm"
+        },
+        "subject-still.png": {
+          "bytes": 303930,
+          "sha256": "a3511d3f7d6bf49cacb116957393e4008ef550dd443be8c7d3cf0e79afbf210f",
+          "mime": "image/png"
+        },
+        "thumbnail.jpg": {
+          "bytes": 13291,
+          "sha256": "0d065712b276a820bc22ec4ae8106dcea43a75f1404a385eeb757d43dfc92b33",
+          "mime": "image/jpeg"
+        },
+        "frame-small.webp": {
+          "bytes": 609252,
+          "sha256": "1da0c5bf7de887c74c295fa36fd90da054ca1daaf35ec7b8b367e407cf70dc09",
+          "mime": "image/webp"
+        }
+      }
+    },
+    {
+      "id": "orca",
+      "name": "虎鲸",
+      "category": "animal",
+      "action": "尾柄与尾鳍上下发力、收力滑行，胸鳍独立调整姿态",
+      "actionLayers": [],
+      "files": {
+        "environment-compact.mp4": {
+          "bytes": 114731,
+          "sha256": "94601d73fef54d225bb4a8c34cac634dd2f82fd73c0cdafd7320f4b61870f1bd",
+          "mime": "video/mp4"
+        },
+        "environment.jpg": {
+          "bytes": 175125,
+          "sha256": "cf4bcf79f5a25e01bd30344fc0c988dc28d7b1e6460927fc1945db2329e22421",
+          "mime": "image/jpeg"
+        },
+        "frame-compact.webm": {
+          "bytes": 136246,
+          "sha256": "878bb9ffb9dcec86e9054dffaff85d11fcbd9bddc63b882f2e58c5f6667d382f",
+          "mime": "video/webm"
+        },
+        "frame-still.png": {
+          "bytes": 308542,
+          "sha256": "f3347c378aff5baf7b264a012669a06528f277d15da2ea470708404bba109bfa",
+          "mime": "image/png"
+        },
+        "portrait-mask.png": {
+          "bytes": 1381,
+          "sha256": "a8c4633c0f5047d891d86b0f73d875803b93de9471fc01b798791813a590b888",
+          "mime": "image/png"
+        },
+        "subject-compact.webm": {
+          "bytes": 169217,
+          "sha256": "80d833983534430c3c47bf03cb4a32d0c44776f1c846b7b97bdcf679fb7e6ec1",
+          "mime": "video/webm"
+        },
+        "subject-still.png": {
+          "bytes": 214135,
+          "sha256": "44fc8dd5d33109d180c19d47066bc011033132e8dee2185c897d249cb7028a89",
+          "mime": "image/png"
+        },
+        "thumbnail.jpg": {
+          "bytes": 11134,
+          "sha256": "23940d15b5cc6c029f947d71ae08de3c1bed07d5bc9cbf3913a3e109d7b7f5c7",
+          "mime": "image/jpeg"
+        },
+        "frame-small.webp": {
+          "bytes": 592966,
+          "sha256": "4738167c288ba88e5d07a930ca6ed2cd85660562dd6a010439f896e522f2aa1c",
+          "mime": "image/webp"
+        }
+      }
+    },
+    {
+      "id": "dolphin",
+      "name": "海豚",
+      "category": "animal",
+      "action": "脊柱后段带动尾鳍起伏，胸鳍轻收放，推进后短暂滑行",
+      "actionLayers": [],
+      "files": {
+        "environment-compact.mp4": {
+          "bytes": 126754,
+          "sha256": "2e8e76e6dac97e3383bf3461d8546b6b3ab5b659a8e4b74b8ad3872784a4fe5b",
+          "mime": "video/mp4"
+        },
+        "environment.jpg": {
+          "bytes": 198902,
+          "sha256": "a98cf291d0b3007b4b5b35760330c3d42016f2bd3eff4357157650152bb0643f",
+          "mime": "image/jpeg"
+        },
+        "frame-compact.webm": {
+          "bytes": 123557,
+          "sha256": "1e9cce2fd9ee5f331fd22fea544eefb6838717e3c1f67200dc1ce8daa28cb967",
+          "mime": "video/webm"
+        },
+        "frame-still.png": {
+          "bytes": 321880,
+          "sha256": "0ee47b5b5182b26355155cf4689d31d3b11797c98d83470832fedec6fd9a24f9",
+          "mime": "image/png"
+        },
+        "portrait-mask.png": {
+          "bytes": 1351,
+          "sha256": "baac9bd59b955e05a0ff512faee2fe74effd7a71b141c873c20d4b4a1cb8243c",
+          "mime": "image/png"
+        },
+        "subject-compact.webm": {
+          "bytes": 131990,
+          "sha256": "3f297d195d9406f207025ec5d4bdf1aeb9fd64874c440f9f644a487f64083aaa",
+          "mime": "video/webm"
+        },
+        "subject-still.png": {
+          "bytes": 133994,
+          "sha256": "4b9baae9b1facd9e363cc6e8302665dff522ecdf768c89b285eadaaf43738cbf",
+          "mime": "image/png"
+        },
+        "thumbnail.jpg": {
+          "bytes": 12365,
+          "sha256": "8eff49de2c95c0526112efe98e75f19baefabde747625e53f7e3cf6d45cf2afd",
+          "mime": "image/jpeg"
+        },
+        "frame-small.webp": {
+          "bytes": 637000,
+          "sha256": "e7de6d48934c108679d3b8d27af3edf1e5f7c3c03fd90459976efec56407f498",
+          "mime": "image/webp"
+        }
+      }
+    },
+    {
+      "id": "manta",
+      "name": "蝠鲼",
+      "category": "animal",
+      "action": "胸鳍由根部向翼梢传递波动，尾部随水流滞后摆动",
+      "actionLayers": [],
+      "files": {
+        "environment-compact.mp4": {
+          "bytes": 113142,
+          "sha256": "51eb819380c4139b236c9a4b8fea2b45fd3b1fb17ab64154ea53eb514bdf7d6c",
+          "mime": "video/mp4"
+        },
+        "environment.jpg": {
+          "bytes": 193445,
+          "sha256": "41ca943db9cf6c4e5329f67b3b7eae739bf87d73edc944a4aae67c31479adf4a",
+          "mime": "image/jpeg"
+        },
+        "frame-compact.webm": {
+          "bytes": 128278,
+          "sha256": "8a8f1a68979761015fd3c6a79ff75b6730c12fc6c7fec49c3fbc25d7766e052c",
+          "mime": "video/webm"
+        },
+        "frame-still.png": {
+          "bytes": 295297,
+          "sha256": "6ba2f96bf7de34c172573212fa1c123b73d67989c8fa87ae57bcfaf73fc935b8",
+          "mime": "image/png"
+        },
+        "portrait-mask.png": {
+          "bytes": 1529,
+          "sha256": "c04bfece26c07177a2999226d69f0e81a1e9dab27565b652f14cf444f128b8a5",
+          "mime": "image/png"
+        },
+        "subject-compact.webm": {
+          "bytes": 232231,
+          "sha256": "399277b5053c173b37edcd48ae2c7250e7799ab425520f6c74edc1661d026e43",
+          "mime": "video/webm"
+        },
+        "subject-still.png": {
+          "bytes": 160319,
+          "sha256": "d86e1a18c990550cf02d4314137073eeff9786625b9ebc43f1c1838430721e5f",
+          "mime": "image/png"
+        },
+        "thumbnail.jpg": {
+          "bytes": 12687,
+          "sha256": "b9af51ded8685df6ea742f24b49a167a2969fb9cd7f25bf0f9a3188d1718d566",
+          "mime": "image/jpeg"
+        },
+        "frame-small.webp": {
+          "bytes": 612142,
+          "sha256": "c7e8a992aa9cd0ce05bd4c9d06521bf6826bb4fc9f5876a8826376b3c1d14eca",
+          "mime": "image/webp"
+        }
+      }
+    },
+    {
+      "id": "turtle",
+      "name": "海龟",
+      "category": "animal",
+      "action": "前鳍肩部有节奏地划水与回收，后鳍轻转向，头颈微调",
+      "actionLayers": [],
+      "files": {
+        "environment-compact.mp4": {
+          "bytes": 139616,
+          "sha256": "59ab3639fa50d436c57040b6fe7d763f049cbff79b588b8fbd3da5ebf4d43e0e",
+          "mime": "video/mp4"
+        },
+        "environment.jpg": {
+          "bytes": 212764,
+          "sha256": "99a02486a4123d9caaa22b82e2ca6d601f894fcc7073d396e4f43d6a569bb80e",
+          "mime": "image/jpeg"
+        },
+        "frame-compact.webm": {
+          "bytes": 115229,
+          "sha256": "6b38aea6dce640ffae49236d045130eeafc201fa96a47de117a57e1a79eda75b",
+          "mime": "video/webm"
+        },
+        "frame-still.png": {
+          "bytes": 378185,
+          "sha256": "2f07ba9b2d947f58cc4981106cc8836abb7b844ad7ef3f8ce3b7e0cd0758d4fd",
+          "mime": "image/png"
+        },
+        "portrait-mask.png": {
+          "bytes": 1358,
+          "sha256": "342b5a9c16b5a40366f0a1f255beee49780c6fc3a852a2091f2c1589451d059c",
+          "mime": "image/png"
+        },
+        "subject-compact.webm": {
+          "bytes": 234508,
+          "sha256": "0b139fc913bbe1a5314ac04138eb0dccb475c89ab5d154aa90c1aa3e8e10fd57",
+          "mime": "video/webm"
+        },
+        "subject-still.png": {
+          "bytes": 192664,
+          "sha256": "661617eccf53c01e80c94bf79525cc95d9cb081220dfb5a6faa56de54e77053f",
+          "mime": "image/png"
+        },
+        "thumbnail.jpg": {
+          "bytes": 14670,
+          "sha256": "67d06b91ef2a9d69ab1d97afb8baac575fa874f8ef2936c2835148ea011af4bc",
+          "mime": "image/jpeg"
+        },
+        "frame-small.webp": {
+          "bytes": 691998,
+          "sha256": "398b7de59a24a612545b19ceb5b6d1862796937cf8fd11bee987a5df15dfd7eb",
+          "mime": "image/webp"
+        }
+      }
+    },
+    {
+      "id": "jellyfish",
+      "name": "水母",
+      "category": "animal",
+      "action": "伞体收缩产生推进，口腕和触手按长度产生延迟波动",
+      "actionLayers": [],
+      "files": {
+        "environment-compact.mp4": {
+          "bytes": 111818,
+          "sha256": "e71042cb5ff00f91dc37077036ecfb412b2703ca7d53e8d81a184b83e9133bb5",
+          "mime": "video/mp4"
+        },
+        "environment.jpg": {
+          "bytes": 195377,
+          "sha256": "c5530921c5bca6b8ce4cb3806413370eb029113a35b9a48798abc6a2d13fafd8",
+          "mime": "image/jpeg"
+        },
+        "frame-compact.webm": {
+          "bytes": 167464,
+          "sha256": "fee53099a0ba3fccf6669dcd39fbc7c83508f9b71986a9a15b3cfcbaaea64d90",
+          "mime": "video/webm"
+        },
+        "frame-still.png": {
+          "bytes": 373487,
+          "sha256": "67e1bf491291db249bb94baa6218335d34c813e0fd0643ade719953bbae21907",
+          "mime": "image/png"
+        },
+        "portrait-mask.png": {
+          "bytes": 1821,
+          "sha256": "cbd061d06da352946635297a2306ea3fa9a7afacb1e9dffd03f27cdcf9c5e491",
+          "mime": "image/png"
+        },
+        "subject-compact.webm": {
+          "bytes": 389062,
+          "sha256": "37d9e07acd4709758751c1f2ee953195490f8c10010ca4d37114eb664ffa600f",
+          "mime": "video/webm"
+        },
+        "subject-still.png": {
+          "bytes": 196544,
+          "sha256": "0d7a5bfd57993512b65a5007bf8056b9bd52ccc35bad4104a1ee37d64439807d",
+          "mime": "image/png"
+        },
+        "thumbnail.jpg": {
+          "bytes": 12444,
+          "sha256": "cbf419b75f0262f695065db192dd6dbec943e093adadf0acc43f8eab5ff41e69",
+          "mime": "image/jpeg"
+        },
+        "frame-small.webp": {
+          "bytes": 724888,
+          "sha256": "020d7fb4123140aeb83ad18b5028ced20e64fdf43683a1a1a1727c23bd4e9aab",
+          "mime": "image/webp"
+        }
+      }
+    },
+    {
+      "id": "hammerhead",
+      "name": "锤头鲨",
+      "category": "animal",
+      "action": "躯干至尾部逐步增大的侧向摆动，头部保持稳定前行",
+      "actionLayers": [],
+      "files": {
+        "environment-compact.mp4": {
+          "bytes": 85811,
+          "sha256": "1b1d6e62b73e1cb77c31313ace8f7f9e64a2154e3c7673e3ba383e6debe32241",
+          "mime": "video/mp4"
+        },
+        "environment.jpg": {
+          "bytes": 154227,
+          "sha256": "bb10151521d9e22be2be55be61443b714d40078824741530d79090fea77b3ed0",
+          "mime": "image/jpeg"
+        },
+        "frame-compact.webm": {
+          "bytes": 130931,
+          "sha256": "411b8bb659b236f0742e925bb86376ec1b2bdafa7e5f3b46255c0ddf6b2f2bc0",
+          "mime": "video/webm"
+        },
+        "frame-still.png": {
+          "bytes": 324148,
+          "sha256": "fc8cbe66523a811ffc9aa47d442adfc1a3991e9158349a4ec8a339952811013e",
+          "mime": "image/png"
+        },
+        "portrait-mask.png": {
+          "bytes": 1213,
+          "sha256": "99b07379d5d0a58fb471d45533f1375a2e9752ec9f50ffa38e013c0d44770ff1",
+          "mime": "image/png"
+        },
+        "subject-compact.webm": {
+          "bytes": 241650,
+          "sha256": "099ea0679728424a788b281741534623560f4abb6a053dc2160e4d46a2ad0a72",
+          "mime": "video/webm"
+        },
+        "subject-still.png": {
+          "bytes": 212464,
+          "sha256": "9e84e0fa00d4b4b71742e435c60e15083daa41eb9b1280c29898c014ded07958",
+          "mime": "image/png"
+        },
+        "thumbnail.jpg": {
+          "bytes": 10298,
+          "sha256": "c897942d4bc12e68eb787018ca1891fbce300371d5e3a82a5ec688a1a6078b15",
+          "mime": "image/jpeg"
+        },
+        "frame-small.webp": {
+          "bytes": 606266,
+          "sha256": "597b5b3a1d6d2e2de9aa02a64dfdec4f7074e1ed0a34d1b5249c755d61a2d5c5",
+          "mime": "image/webp"
+        }
+      }
+    },
+    {
+      "id": "sunfish",
+      "name": "翻车鱼",
+      "category": "animal",
+      "action": "背鳍和臀鳍独立对称划动，短尾缘轻微修正方向",
+      "actionLayers": [],
+      "files": {
+        "environment-compact.mp4": {
+          "bytes": 99555,
+          "sha256": "6367b30a586da58af99cc7b5319ad68e2c37df0cd3d8abc24513413ecddb679c",
+          "mime": "video/mp4"
+        },
+        "environment.jpg": {
+          "bytes": 192392,
+          "sha256": "e63be3cd19c9cac7ed3c8605ffa56b2dc71da5c535fae5976cec935b448485d4",
+          "mime": "image/jpeg"
+        },
+        "frame-compact.webm": {
+          "bytes": 78897,
+          "sha256": "2f169d0b025e91fb18e6b68da20d943ea0368916609502797375bca343b48904",
+          "mime": "video/webm"
+        },
+        "frame-still.png": {
+          "bytes": 325639,
+          "sha256": "59c47897a53eb5807d73e764a2d5c2bc2df910c58927b43d51de94b65b1a4221",
+          "mime": "image/png"
+        },
+        "portrait-mask.png": {
+          "bytes": 1342,
+          "sha256": "de5add97ade393d45fd3408ef2b5169c1845f555f810b4f8e983c41064182673",
+          "mime": "image/png"
+        },
+        "subject-compact.webm": {
+          "bytes": 135784,
+          "sha256": "8cb451631af00ddea669766047dd771747e97a3e833cc62d0e817f8733f99577",
+          "mime": "video/webm"
+        },
+        "subject-still.png": {
+          "bytes": 143122,
+          "sha256": "da89bd0e5f187537e3f6f6dec3ce1b2acebf3e870ee99fadd0024aa877fabfad",
+          "mime": "image/png"
+        },
+        "thumbnail.jpg": {
+          "bytes": 13434,
+          "sha256": "7f808e487edbb87cc44c89699068ae6e42bce381f7a2e9b1b2d5b92417ec2e37",
+          "mime": "image/jpeg"
+        },
+        "frame-small.webp": {
+          "bytes": 592074,
+          "sha256": "9b6bbcb8037961f0144d34800574b2c9c6d5dc9e2621ce2d7a58c35f13038670",
+          "mime": "image/webp"
+        }
+      }
+    },
+    {
+      "id": "match3",
+      "name": "缤纷消除",
+      "category": "game",
+      "action": "宝石交换后形成三连，消除缩合，上方宝石落入并补齐；外围宝石依次转面。",
+      "actionLayers": [],
+      "files": {
+        "environment-compact.mp4": {
+          "bytes": 93299,
+          "sha256": "89a8b6be63b8f0974d0e3ef2d6433f0be6d059ae9436797afde2fef35a03940a",
+          "mime": "video/mp4"
+        },
+        "environment.jpg": {
+          "bytes": 169311,
+          "sha256": "6ffdf171ad5944185f713da13998c8015f7e6348f411ba39930b778c09e8868e",
+          "mime": "image/jpeg"
+        },
+        "frame-compact.webm": {
+          "bytes": 47158,
+          "sha256": "4c3a823fe39043127f1e15f42ee4903624b7ed0d52cbac8bd0b8b50307afaec0",
+          "mime": "video/webm"
+        },
+        "frame-still.png": {
+          "bytes": 307903,
+          "sha256": "ea02a48f52a79efe188cd63db988638203b76954e29ec9a1dcd02d9f19753cbb",
+          "mime": "image/png"
+        },
+        "portrait-mask.png": {
+          "bytes": 1707,
+          "sha256": "6d5c67fefd03568cbe121d98689bc9abf4712ff16b2de8cbd7572ac1e9c0d48a",
+          "mime": "image/png"
+        },
+        "subject-compact.webm": {
+          "bytes": 270567,
+          "sha256": "4685e89886a29e05a41fd0fb30013f5eb779fe0a4dae107574b90092fff7bb2e",
+          "mime": "video/webm"
+        },
+        "subject-still.png": {
+          "bytes": 235917,
+          "sha256": "a4c2e0e96aface7260b1d0b4b826bb7522c795d01585ab327c306118c320bf25",
+          "mime": "image/png"
+        },
+        "thumbnail.jpg": {
+          "bytes": 14326,
+          "sha256": "47a36c09242b51b4e87c284dc48345bc9bd56c2879137cadeb7deac4ff0b55b1",
+          "mime": "image/jpeg"
+        },
+        "frame-small.webp": {
+          "bytes": 128520,
+          "sha256": "a7bda490c6575d61cf24005266d9033538f2dd25540e6c2b8663f6a688fa5df7",
+          "mime": "image/webp"
+        }
+      }
+    },
+    {
+      "id": "blocks",
+      "name": "俄罗斯方块",
+      "category": "game",
+      "action": "活动方块平移旋转、下落锁定，完成整行后清除并重新进入；侧边方块联动翻转。",
+      "actionLayers": [],
+      "files": {
+        "environment-compact.mp4": {
+          "bytes": 43128,
+          "sha256": "fc3763dff41a0538304d808813b8e620886a4bc15eb55366aa15c3961fc0d7a6",
+          "mime": "video/mp4"
+        },
+        "environment.jpg": {
+          "bytes": 157782,
+          "sha256": "5907643206a3a27293f4b803cc2d51fe7016f1b59b2f560745aa8d88277a9cae",
+          "mime": "image/jpeg"
+        },
+        "frame-compact.webm": {
+          "bytes": 42912,
+          "sha256": "88e2d7fb420caa58545dccf6ee95121361b778d180bf13f0d319f58bba1182e7",
+          "mime": "video/webm"
+        },
+        "frame-still.png": {
+          "bytes": 274834,
+          "sha256": "b0b78e1987434ca03298ffb3c711af255ab6129da0e7cda50e9e7f7f304efa03",
+          "mime": "image/png"
+        },
+        "portrait-mask.png": {
+          "bytes": 1290,
+          "sha256": "040706be61f67ab36a598f872fab8cfdcebb14d9109981d2a49ebffc88b3e73f",
+          "mime": "image/png"
+        },
+        "subject-compact.webm": {
+          "bytes": 149288,
+          "sha256": "ad49aa1179dd8c60e7863d55e3ea1e0932c22c6dd6dc2e99a49264b479e261a7",
+          "mime": "video/webm"
+        },
+        "subject-still.png": {
+          "bytes": 112121,
+          "sha256": "d4746106b50c0bb2a44d4bab1ba7d33b7e1a627993dd81aeb163f818e37abbbf",
+          "mime": "image/png"
+        },
+        "thumbnail.jpg": {
+          "bytes": 12902,
+          "sha256": "270193b42f9f0f241c451f5dd34f51d0ce280828a5c5e2d4e4dfd8d6480d69a3",
+          "mime": "image/jpeg"
+        },
+        "frame-small.webp": {
+          "bytes": 151160,
+          "sha256": "1cc5d4a624e4d17531d7e7f9576b5a5b361b69d5417b75773fa8dd1613b35f67",
+          "mime": "image/webp"
+        }
+      }
+    },
+    {
+      "id": "starfighter",
+      "name": "雷霆战机",
+      "category": "game",
+      "action": "战机连续倾侧转弯、回正与掠过，双推进器随加速响应；空间站机械环转动。",
+      "actionLayers": [],
+      "files": {
+        "environment-compact.mp4": {
+          "bytes": 55863,
+          "sha256": "d5efdc482a2a36daa55eb3e0cf03c1a6d16ab04a812f0d10093302d90e9580a6",
+          "mime": "video/mp4"
+        },
+        "environment.jpg": {
+          "bytes": 133298,
+          "sha256": "d291fcfec7426bca1a7cf9d069c3da1e533217d7a275f7086b5948cca09ae05e",
+          "mime": "image/jpeg"
+        },
+        "frame-compact.webm": {
+          "bytes": 60908,
+          "sha256": "ef02d7be24a0078aa2d73bce761242e90d3430787bae89f6aad6b8f1ddfea974",
+          "mime": "video/webm"
+        },
+        "frame-still.png": {
+          "bytes": 282098,
+          "sha256": "1dc59838505532b48cfe85070da62b3c277d533c1f979b56d39c4e8fe8329c90",
+          "mime": "image/png"
+        },
+        "portrait-mask.png": {
+          "bytes": 1625,
+          "sha256": "05fb33aadf3ad8e21e0d7b951b395f47eae34cbecfd328ce057a747a4ac68440",
+          "mime": "image/png"
+        },
+        "subject-compact.webm": {
+          "bytes": 267583,
+          "sha256": "57d0fcb4d55ec8961301d0ad3688eebd1722ec0a9da88e67630a641cb18bfe92",
+          "mime": "video/webm"
+        },
+        "subject-still.png": {
+          "bytes": 203609,
+          "sha256": "2e8101a89cd62ce8bb235adc0407d1236e35494efe2cd6ebf481f0931eb0b7b4",
+          "mime": "image/png"
+        },
+        "thumbnail.jpg": {
+          "bytes": 10534,
+          "sha256": "9784263be8dea05761dbec78232baba27e882c24e822400ae9010dd48714276a",
+          "mime": "image/jpeg"
+        },
+        "frame-small.webp": {
+          "bytes": 110462,
+          "sha256": "f408f8477f9d3035c9e439f19d0af4882eb388cc64600dee9ebf73df65b8fd53",
+          "mime": "image/webp"
+        }
+      }
+    },
+    {
+      "id": "platformer",
+      "name": "横版闯关",
+      "category": "game",
+      "action": "角色预蹲起跳、空中收腿、着地缓冲，金币转动并被收取，旗面与瀑布连续运动。",
+      "actionLayers": [],
+      "files": {
+        "environment-compact.mp4": {
+          "bytes": 65216,
+          "sha256": "3872767ea755534e5745db23cf64dafa749ac91b4690df222b1517ac8b979703",
+          "mime": "video/mp4"
+        },
+        "environment.jpg": {
+          "bytes": 176472,
+          "sha256": "18c2641981af2378677b3a055a3b5b3e31c390a1b47456793e3d0ba971d05890",
+          "mime": "image/jpeg"
+        },
+        "frame-compact.webm": {
+          "bytes": 59451,
+          "sha256": "27ff011290cacb89792c75109ff73716273867a4d703aa5bc2093467d2a51c14",
+          "mime": "video/webm"
+        },
+        "frame-still.png": {
+          "bytes": 296460,
+          "sha256": "0656e317062af276ce36b85c31db51187562480e96051c6adf28ba95219bc0e6",
+          "mime": "image/png"
+        },
+        "portrait-mask.png": {
+          "bytes": 2455,
+          "sha256": "48a008a1f955ed2187c89ee16311d6c20af3a5e53ecd65b6c34fbdf29eceda96",
+          "mime": "image/png"
+        },
+        "subject-compact.webm": {
+          "bytes": 327631,
+          "sha256": "f27550ed98155c9c1488962b9c803cc715cb10ae80c103b3c4a752ccd407739d",
+          "mime": "video/webm"
+        },
+        "subject-still.png": {
+          "bytes": 131334,
+          "sha256": "2b0240ced73979a5c40c5ac9c153293014d9358f75b0624ab3061d49b6d8b0e4",
+          "mime": "image/png"
+        },
+        "thumbnail.jpg": {
+          "bytes": 14304,
+          "sha256": "a332b9b38c53ad1a22ca77970ac4af834b8d20a3e178b4967212730cd27bb181",
+          "mime": "image/jpeg"
+        },
+        "frame-small.webp": {
+          "bytes": 330574,
+          "sha256": "447d73091d40e7e84b14dafd2865d37c84e978add22dcbff8fe64a9847f376e2",
+          "mime": "image/webp"
+        }
+      }
+    },
+    {
+      "id": "snake",
+      "name": "贪吃蛇",
+      "category": "game",
+      "action": "蛇头领航转向，身体沿路径逐节跟随，接近果实后吞食；叶片与果实作次级运动。",
+      "actionLayers": [],
+      "files": {
+        "environment-compact.mp4": {
+          "bytes": 69194,
+          "sha256": "e73c3cf017afb724f50c555ba437e3d8191591a9e42986d8681dc50d517c630d",
+          "mime": "video/mp4"
+        },
+        "environment.jpg": {
+          "bytes": 233166,
+          "sha256": "c62d13f70044f0b28e795d01beb140f4eab9bab41f89de98dd197347aaf4b065",
+          "mime": "image/jpeg"
+        },
+        "frame-compact.webm": {
+          "bytes": 37843,
+          "sha256": "d5d3ab621b29448bf3e88b736866b12e47c1eb358237dad322b2b3a27b83184f",
+          "mime": "video/webm"
+        },
+        "frame-still.png": {
+          "bytes": 305438,
+          "sha256": "7e3c15b1b0f520a80264ea1a6dac7d01b2f7a65040b0f55dc44d972a3b97519e",
+          "mime": "image/png"
+        },
+        "portrait-mask.png": {
+          "bytes": 1808,
+          "sha256": "bf09d41f84826615dac3be3d3a7ff37cd74d9fa3819db8655b072f623cc8efa8",
+          "mime": "image/png"
+        },
+        "subject-compact.webm": {
+          "bytes": 343359,
+          "sha256": "36afe53d809daefe5117fb919cbaac4ce000d509a95d2c42f2b46a642e26dcc5",
+          "mime": "video/webm"
+        },
+        "subject-still.png": {
+          "bytes": 154480,
+          "sha256": "a3ce78b63f3d0fbf1da8ce160ec9f08ad37dcd41d9a749e232ee631b2400dd70",
+          "mime": "image/png"
+        },
+        "thumbnail.jpg": {
+          "bytes": 16954,
+          "sha256": "c076a0b35aa1285407175de2d10270855515c5f4a41ba61709765f9992939081",
+          "mime": "image/jpeg"
+        },
+        "frame-small.webp": {
+          "bytes": 114688,
+          "sha256": "66410d19c23496d44cae239dbd3e9f89a00593f51d0976a44d4c137986571647",
+          "mime": "image/webp"
+        }
+      }
+    },
+    {
+      "id": "sakura",
+      "name": "樱花树",
+      "category": "plant",
+      "action": "枝条从枝根弯曲，花簇滞后跟随；框体花枝、场景树梢与湖面倒影分别运动。",
+      "actionLayers": [
+        "主枝弯曲与花簇滞后",
+        "框外樱花与缎带局部随风",
+        "远近树梢错相、湖面水纹传播"
+      ],
+      "files": {
+        "environment-compact.mp4": {
+          "bytes": 119113,
+          "sha256": "bc2ef37e7030efe7993dd37fbb6b5726915523ac8866fc59eb62767c1663c289",
+          "mime": "video/mp4"
+        },
+        "environment.jpg": {
+          "bytes": 171904,
+          "sha256": "e9928b228c4f04f5bdc1348b39bd84999b76cfcb999e63188a853afc9e00bedf",
+          "mime": "image/jpeg"
+        },
+        "frame-compact.webm": {
+          "bytes": 58445,
+          "sha256": "7ca4b5e68d96f67320a42b817edc3a0fdc2c283507b9b2781e8cf9051cf1db4e",
+          "mime": "video/webm"
+        },
+        "frame-still.png": {
+          "bytes": 324045,
+          "sha256": "0968bf3622c0a570ec5cd150723744a13040099696540cd10ae5977a67b61ca0",
+          "mime": "image/png"
+        },
+        "portrait-mask.png": {
+          "bytes": 1626,
+          "sha256": "28a4839d0e05a0417c9585d4ddedf100e84ff93886c582641e8ce1775c6e0a2d",
+          "mime": "image/png"
+        },
+        "subject-compact.webm": {
+          "bytes": 209685,
+          "sha256": "b62fa6babc0a239e846368dd2b0b53685f831ce4806ccad13d171880fb0db402",
+          "mime": "video/webm"
+        },
+        "subject-still.png": {
+          "bytes": 172200,
+          "sha256": "5155125e7b46635d841d2d07b9627d54ca1eba53ff0ae9c369cf7ec9b9d5bae7",
+          "mime": "image/png"
+        },
+        "thumbnail.jpg": {
+          "bytes": 13717,
+          "sha256": "460bf923bae9569648ceef26c01273aec6463689bda52d5fc89cab7040080fc2",
+          "mime": "image/jpeg"
+        },
+        "frame-small.webp": {
+          "bytes": 632500,
+          "sha256": "7307f4a1620f7e71f468b777598c6f211c55b607b140496dccc532031eaddb37",
+          "mime": "image/webp"
+        }
+      }
+    },
+    {
+      "id": "meadow",
+      "name": "繁花草地",
+      "category": "plant",
+      "action": "花茎逐段弯曲，雏菊和铃兰花头错相点头；前景草叶和远处草甸形成风带。",
+      "actionLayers": [
+        "多根花茎弯曲、花头滞后",
+        "框外花朵与藤叶轻摆",
+        "近景草叶与远景草甸错相受风"
+      ],
+      "files": {
+        "environment-compact.mp4": {
+          "bytes": 80066,
+          "sha256": "78ec41e7bf2c8f9e6d68f4a4c3b8e070f760c9d27cdce166a5315a73a88d973f",
+          "mime": "video/mp4"
+        },
+        "environment.jpg": {
+          "bytes": 168585,
+          "sha256": "f489cbea052ceb30741923c4954ac6dcea700d2555c608fe63f6143430898b32",
+          "mime": "image/jpeg"
+        },
+        "frame-compact.webm": {
+          "bytes": 58299,
+          "sha256": "da663d4c9c205b5fa0d42a5960ac060d84df66f94d863d5ffc20395d1b6452aa",
+          "mime": "video/webm"
+        },
+        "frame-still.png": {
+          "bytes": 328752,
+          "sha256": "8238d3423a7fd200e9e4ea9ea2df745af92339d055515673ac7cbd48f5cfaf82",
+          "mime": "image/png"
+        },
+        "portrait-mask.png": {
+          "bytes": 1558,
+          "sha256": "e86da5df6a717224c42c5364efc0469fea4552840df854404b2197f7d8866075",
+          "mime": "image/png"
+        },
+        "subject-compact.webm": {
+          "bytes": 402015,
+          "sha256": "e6298ceaf7c42e98b7b308d9a176fa7d296077bfd36f2f507e4f6be0004289a3",
+          "mime": "video/webm"
+        },
+        "subject-still.png": {
+          "bytes": 223584,
+          "sha256": "6ba60c354785a6c7766ae7cb9abc1a8a60e222fdd14b60ce199bcca1a7a028e7",
+          "mime": "image/png"
+        },
+        "thumbnail.jpg": {
+          "bytes": 13275,
+          "sha256": "be9e39f65fb1978d0c193205dcdad280dfdbd8dd3bb39c4a585358ec002a3bb8",
+          "mime": "image/jpeg"
+        },
+        "frame-small.webp": {
+          "bytes": 581076,
+          "sha256": "23d3da9f43955a28bcb556e31b88417d5986ee2e1ea2cdecc03b4f92f3f46bf6",
+          "mime": "image/webp"
+        }
+      }
+    },
+    {
+      "id": "bamboo",
+      "name": "竹林",
+      "category": "plant",
+      "action": "竹枝从分叉处弯曲，竹叶末端跟随回弹；近远竹梢错相，溪水沿河道前行。",
+      "actionLayers": [
+        "竹枝弯曲、叶梢滞后回弹",
+        "框外竹叶围绕叶柄摆动",
+        "远近竹梢与沿河道流动的水纹"
+      ],
+      "files": {
+        "environment-compact.mp4": {
+          "bytes": 97976,
+          "sha256": "7148127e6cf837adf8603bc5515fd2c2d5179600811cb83b3445ada665dca7a9",
+          "mime": "video/mp4"
+        },
+        "environment.jpg": {
+          "bytes": 165358,
+          "sha256": "8356e020ed8438aef3dbfba15d33f843b943be90359554f2aa92dbb058fd2c9e",
+          "mime": "image/jpeg"
+        },
+        "frame-compact.webm": {
+          "bytes": 48809,
+          "sha256": "25a6e9fd2780e2d8bf077223dd8f1a56604755d308bb300d08da2db066de8ca6",
+          "mime": "video/webm"
+        },
+        "frame-still.png": {
+          "bytes": 276375,
+          "sha256": "1aba9fa95c9ecd24587b9fb3c16e08a2c33d7857119c139edca46fa860b137f1",
+          "mime": "image/png"
+        },
+        "portrait-mask.png": {
+          "bytes": 1876,
+          "sha256": "5717761778e84a1d7d8c5594798e1669b34032e9c3bb4ac4cb3679a3b3588174",
+          "mime": "image/png"
+        },
+        "subject-compact.webm": {
+          "bytes": 311704,
+          "sha256": "4196738e6902da6f4e67ef6a5c5f184dbbe26500f3571ab4ef94873a61348b74",
+          "mime": "video/webm"
+        },
+        "subject-still.png": {
+          "bytes": 118599,
+          "sha256": "749202ea5404b76603247729e9956baf2ba389f24dea48a8e9b58e80f4b0783f",
+          "mime": "image/png"
+        },
+        "thumbnail.jpg": {
+          "bytes": 12880,
+          "sha256": "ac23e19f339986b762612d40175174c638b4ac1451ee62dd726b962ee10cf36e",
+          "mime": "image/jpeg"
+        },
+        "frame-small.webp": {
+          "bytes": 529168,
+          "sha256": "270ac609f16872d5e500d1d22a7257f6b57bb327eef83668e68d4aa8d40c6215",
+          "mime": "image/webp"
+        }
+      }
+    },
+    {
+      "id": "lotus",
+      "name": "荷塘",
+      "category": "plant",
+      "action": "花茎缓慢弯曲；三片荷叶按不同水波相位浮动、倾角变化，涟漪向外传播。",
+      "actionLayers": [
+        "花茎弯曲、荷叶错相浮动与倾角",
+        "框外荷花、荷叶轻摆",
+        "水面传播涟漪、水平流动水纹和倒影"
+      ],
+      "files": {
+        "environment-compact.mp4": {
+          "bytes": 128827,
+          "sha256": "847eec147f55fc2b2fffa721de69d1628bf31f9b24bc697d8ee62ffae4d542ec",
+          "mime": "video/mp4"
+        },
+        "environment.jpg": {
+          "bytes": 143858,
+          "sha256": "4faba389b07d0789057c4af502f14a2e032bb4fbf6a209a2adda30b995daa4b9",
+          "mime": "image/jpeg"
+        },
+        "frame-compact.webm": {
+          "bytes": 45155,
+          "sha256": "bd39f3c44878d887c6ff000d7f30f990bc51ae6bfb8f57b9acb6bb208b85d34d",
+          "mime": "video/webm"
+        },
+        "frame-still.png": {
+          "bytes": 320258,
+          "sha256": "38b8975a97f8225eb091c942a52b11bbbaba73a6f5b94f9e82f630611504e70b",
+          "mime": "image/png"
+        },
+        "portrait-mask.png": {
+          "bytes": 1209,
+          "sha256": "f3475a7214e3025632921bef4cfe8cfca2622f870cd4aeb2b655b41f5f3adc3d",
+          "mime": "image/png"
+        },
+        "subject-compact.webm": {
+          "bytes": 166464,
+          "sha256": "5f966948953a1f555a9b70e19aaa7be7bb1f82c7ecfafbced6a1f1f213227678",
+          "mime": "video/webm"
+        },
+        "subject-still.png": {
+          "bytes": 232841,
+          "sha256": "c102d18c76f5444b8b52cc63858d545d99f299d7d45f0c2a7c4111eff47a722c",
+          "mime": "image/png"
+        },
+        "thumbnail.jpg": {
+          "bytes": 11374,
+          "sha256": "7ee6480b2ebefbfe5389d5ae12df7684ac26435929870b2dcd2034c90561fd2e",
+          "mime": "image/jpeg"
+        },
+        "frame-small.webp": {
+          "bytes": 546204,
+          "sha256": "995b35faafb8e96e5e0ffa4679d86b204b9ccdc9a35de94875c2c1b81d813e0c",
+          "mime": "image/webp"
+        }
+      }
+    },
+    {
+      "id": "dandelion",
+      "name": "蒲公英",
+      "category": "plant",
+      "action": "高低花茎在阵风中弯曲，绒球保持体积而随花茎倾斜；草叶风带向远处传递。",
+      "actionLayers": [
+        "高低花茎弯曲、绒球滞后点头",
+        "框边叶梢与白色种子球局部运动",
+        "前景叶片与草地连续风带"
+      ],
+      "files": {
+        "environment-compact.mp4": {
+          "bytes": 45748,
+          "sha256": "5f94ed63c082a8a66b7692e8083672f38a153bdfa0b72de7d0a7c2deec558075",
+          "mime": "video/mp4"
+        },
+        "environment.jpg": {
+          "bytes": 108536,
+          "sha256": "985e449db616788b42ed4beb04433a957d2d0e2a6c0b6961699a13e4d1a42b9f",
+          "mime": "image/jpeg"
+        },
+        "frame-compact.webm": {
+          "bytes": 53503,
+          "sha256": "7e28487d6f58b25633973b6de03cd268010e5f987127161f6172579f278aaeed",
+          "mime": "video/webm"
+        },
+        "frame-still.png": {
+          "bytes": 301014,
+          "sha256": "19046bb33ac48446a9126adc50c8fc4cfdc017524f5690c7594151248799be7b",
+          "mime": "image/png"
+        },
+        "portrait-mask.png": {
+          "bytes": 1240,
+          "sha256": "ba764a59413fcd282d75e2a691055c3061ec37e9f9b363022664a710ad3bca3e",
+          "mime": "image/png"
+        },
+        "subject-compact.webm": {
+          "bytes": 147683,
+          "sha256": "99ad4485dcd99ff94e514b5c068bccb825f61f6ffd49b7feaaf22ca293f2b576",
+          "mime": "video/webm"
+        },
+        "subject-still.png": {
+          "bytes": 128612,
+          "sha256": "2754bf6334455b3802dfbf57c8ae0be0c3d3233ac0a503db6e5cd45f89f0d047",
+          "mime": "image/png"
+        },
+        "thumbnail.jpg": {
+          "bytes": 7634,
+          "sha256": "4d1049d4bb45c3080c38880fa946b777a713471dd92976a48a6db7d82532f374",
+          "mime": "image/jpeg"
+        },
+        "frame-small.webp": {
+          "bytes": 575940,
+          "sha256": "91f005d1af3c5e528f3173e9c49ec6a7c99df8dad2e5ce48dc25eacf43e69531",
+          "mime": "image/webp"
+        }
+      }
+    },
+    {
+      "id": "ringed-planet",
+      "name": "月环行星",
+      "category": "celestial",
+      "action": "行星表面云带连续旋转，星环前后层遮挡正确并缓慢进动；远处星云逐段流动。",
+      "actionLayers": [
+        "行星表面旋转与星环前后遮挡",
+        "框上行星云带局部流动、丝带错相",
+        "远景星云局部旋流、星球云带运动"
+      ],
+      "files": {
+        "environment-compact.mp4": {
+          "bytes": 24201,
+          "sha256": "ddec70a9f6fa27d0501b099aa9bcf86650d2cb1f251e9fd3409f664259c9be6a",
+          "mime": "video/mp4"
+        },
+        "environment.jpg": {
+          "bytes": 84059,
+          "sha256": "56a2727acec44923ec7648fc7611fa5ef86bc39decd5320ec43a09c8889054a6",
+          "mime": "image/jpeg"
+        },
+        "frame-compact.webm": {
+          "bytes": 45927,
+          "sha256": "de41c1d8f6607cefaa31ef2ffd2097c872660144ef3b1c8d7b8bad94a25d4654",
+          "mime": "video/webm"
+        },
+        "frame-still.png": {
+          "bytes": 293314,
+          "sha256": "4c15c5f05332f23f1387b851226e2177d0595b4cd63d279d9205e00ec9eef7f4",
+          "mime": "image/png"
+        },
+        "portrait-mask.png": {
+          "bytes": 1739,
+          "sha256": "67b3488d769c375bfeed4a3c44f49c679e39158f09563d18d7fdc6d0ae0c8df1",
+          "mime": "image/png"
+        },
+        "subject-compact.webm": {
+          "bytes": 161749,
+          "sha256": "0e8d0d0f50cfc762311a6cf478b1a859e404116a451de066a60dd8346eb3cc0d",
+          "mime": "video/webm"
+        },
+        "subject-still.png": {
+          "bytes": 155390,
+          "sha256": "57c6da0d586602104570aa95be5ed0c9616f580d34c2ba9be495edbb689ef1db",
+          "mime": "image/png"
+        },
+        "thumbnail.jpg": {
+          "bytes": 6438,
+          "sha256": "5dccd0b2c4a60dbb7cf8426dd32ffd838297efa0915fe584673b4097f6d61698",
+          "mime": "image/jpeg"
+        },
+        "frame-small.webp": {
+          "bytes": 545472,
+          "sha256": "5a81c53fac829b8d578d24a8e17ed3f802ca7bcdd8571dc514fac33a2266f566",
+          "mime": "image/webp"
+        }
+      }
+    },
+    {
+      "id": "aurora-curtain",
+      "name": "极光帷幕",
+      "category": "celestial",
+      "action": "极光带沿长度方向传播折叠，竖直光帘伸展收拢；框体光带和远景极光独立流动。",
+      "actionLayers": [
+        "极光帷幕传播折叠与伸展",
+        "框外极光带分段弯折",
+        "天空帷幕流动、冰湖倒影涟漪"
+      ],
+      "files": {
+        "environment-compact.mp4": {
+          "bytes": 105365,
+          "sha256": "7498254c26505772383d7ef5a6a7ae1fb2f321852fbf84af02401d20bbb72176",
+          "mime": "video/mp4"
+        },
+        "environment.jpg": {
+          "bytes": 125082,
+          "sha256": "e8216deba490889662d5d8b50475391c75553c2f11c3f1e52b84b45d5a25ecfe",
+          "mime": "image/jpeg"
+        },
+        "frame-compact.webm": {
+          "bytes": 76504,
+          "sha256": "7c1ee8635f51953d48236d237101dd1e9d95f90bcad2b09fca06923d651ca311",
+          "mime": "video/webm"
+        },
+        "frame-still.png": {
+          "bytes": 282462,
+          "sha256": "5450b5ba9b25615ae05a5ef6e34c1a5f9ac58f19541fffb95c1d3ac455e5ab44",
+          "mime": "image/png"
+        },
+        "portrait-mask.png": {
+          "bytes": 1273,
+          "sha256": "cd35c4e45ce81a3bfbdaed7df8f62db0a69376935234745f95ae3883934bb1b0",
+          "mime": "image/png"
+        },
+        "subject-compact.webm": {
+          "bytes": 110718,
+          "sha256": "d1de5fdb686b6758ee31c1407aedef3cbe5be0224e9a9446a8d5b634eb21a5f6",
+          "mime": "video/webm"
+        },
+        "subject-still.png": {
+          "bytes": 197515,
+          "sha256": "256a8ae5c6c64164ada86cdea745f3d39d12a17c41325b08a515c3bcb8e5c156",
+          "mime": "image/png"
+        },
+        "thumbnail.jpg": {
+          "bytes": 10469,
+          "sha256": "2c3af5f93debbbad083a23e1a9cc946c55d72053611e261a4c9807b92703eec6",
+          "mime": "image/jpeg"
+        },
+        "frame-small.webp": {
+          "bytes": 560368,
+          "sha256": "3a253308b8cabd8282699462f9be4ba6ac629c5aad4d455d79bce455237b8e4e",
+          "mime": "image/webp"
+        }
+      }
+    },
+    {
+      "id": "nebula-tide",
+      "name": "星云潮汐",
+      "category": "celestial",
+      "action": "云团大尺度翻卷，内部云层以不同相位流动；框外云脊与背景星云分别受流场驱动。",
+      "actionLayers": [
+        "云团旋涡与丝状气体流动",
+        "框上云脊局部翻卷",
+        "场景不同深度云带错相流动"
+      ],
+      "files": {
+        "environment-compact.mp4": {
+          "bytes": 55746,
+          "sha256": "cadc504ce389e2be167a92fb33ce0ed5280cf5679f0ad43b942099d57ca552fd",
+          "mime": "video/mp4"
+        },
+        "environment.jpg": {
+          "bytes": 96164,
+          "sha256": "c8afc9a7ee950e6fd0bb571edd6ad4f80ff6647716ae2eff3aa3adf309390cc1",
+          "mime": "image/jpeg"
+        },
+        "frame-compact.webm": {
+          "bytes": 77120,
+          "sha256": "b25b81f5adc20a63cac3ef5783c85470f446056c1d264235b9388198d9b6a112",
+          "mime": "video/webm"
+        },
+        "frame-still.png": {
+          "bytes": 331341,
+          "sha256": "9f8d7cbbaf74c0b2770046c9fb85e7e1000807d4309927fe673e3fd25d165024",
+          "mime": "image/png"
+        },
+        "portrait-mask.png": {
+          "bytes": 1373,
+          "sha256": "282e43732bf297be8b1e0692f17927e9bfe63526326bde8d717d7f802192a4db",
+          "mime": "image/png"
+        },
+        "subject-compact.webm": {
+          "bytes": 162218,
+          "sha256": "4ec9d7a4928e1fca6d0a53e33a27e65b99b707a7d9c32575f5f07b174033e120",
+          "mime": "video/webm"
+        },
+        "subject-still.png": {
+          "bytes": 188186,
+          "sha256": "6745b8e20c31adc2fb4bfc4e86258a572c5ccc750d146c9bdb9d5c37cfd938ec",
+          "mime": "image/png"
+        },
+        "thumbnail.jpg": {
+          "bytes": 7466,
+          "sha256": "3184274196c6dfcac5e1dae381dabe1c24001c3e420d02b98dae6e3db64f4ccd",
+          "mime": "image/jpeg"
+        },
+        "frame-small.webp": {
+          "bytes": 543740,
+          "sha256": "ed995b7e6c636064a3e8d847920c673239d5d00cb3bfd407762e9f4dc002df89",
+          "mime": "image/webp"
+        }
+      }
+    },
+    {
+      "id": "prism-ribbons",
+      "name": "棱镜流光",
+      "category": "celestial",
+      "action": "棱镜带沿长度传播弯曲与扭转；框边丝带同步但错相，远景瀑布向下流淌。",
+      "actionLayers": [
+        "主丝带传播弯曲与扭转",
+        "框外各段丝带错相起伏",
+        "场景丝带流动、瀑布向下流淌和水面纹理"
+      ],
+      "files": {
+        "environment-compact.mp4": {
+          "bytes": 44719,
+          "sha256": "0727c9f52f8698fc2d3f5d1b9d97e2f32ebb5522797fd6e24798665d27e1419b",
+          "mime": "video/mp4"
+        },
+        "environment.jpg": {
+          "bytes": 132909,
+          "sha256": "20a0b9c2d408ce5728b585e7ef12c763d8911734dbed3d022143a265ef1fce4a",
+          "mime": "image/jpeg"
+        },
+        "frame-compact.webm": {
+          "bytes": 79940,
+          "sha256": "2f0a1d164adda0a8e653e723cb15743dfdfedc93d54a079b5b6156df943b277b",
+          "mime": "video/webm"
+        },
+        "frame-still.png": {
+          "bytes": 271278,
+          "sha256": "19c4c49a48c1f74ec73261dedb67ad99fe889cabaafaf1e8e8a38576d7dd3425",
+          "mime": "image/png"
+        },
+        "portrait-mask.png": {
+          "bytes": 1096,
+          "sha256": "927ab51f64945b0a31b436ca8b23fed37917081e9e6103f0e3dcf5394de321fa",
+          "mime": "image/png"
+        },
+        "subject-compact.webm": {
+          "bytes": 194788,
+          "sha256": "2164b4bb46922ea08c1859af37527624e36c6201df83de8bd39b111232730925",
+          "mime": "video/webm"
+        },
+        "subject-still.png": {
+          "bytes": 88625,
+          "sha256": "331ec301ab3cf2be87af1142350b0383fd286d10a0f420d7408e10e69419515f",
+          "mime": "image/png"
+        },
+        "thumbnail.jpg": {
+          "bytes": 10865,
+          "sha256": "d0f0913e0e0477133f453d56b8945730152590869804f3da90f3508796da2aad",
+          "mime": "image/jpeg"
+        },
+        "frame-small.webp": {
+          "bytes": 517154,
+          "sha256": "d302be429cd04c63af9bcce6fefb6e5f1c9b63cfd6955c0fc216e66ff0889f21",
+          "mime": "image/webp"
+        }
+      }
+    },
+    {
+      "id": "meteor-weave",
+      "name": "流星织梦",
+      "category": "celestial",
+      "action": "完整流星沿弧线穿行、尾迹滞后弯曲；框边流星绕行，天空流星与近景花枝独立运动。",
+      "actionLayers": [
+        "完整流星穿行、连续尾迹跟随",
+        "框边流星绕行、编织带微动",
+        "远景流星分批划过、近景花枝随风"
+      ],
+      "files": {
+        "environment-compact.mp4": {
+          "bytes": 31076,
+          "sha256": "102a70ed94f03924e53c1d4ade295d3556b1222fe0f769ef6e2019e6e9158106",
+          "mime": "video/mp4"
+        },
+        "environment.jpg": {
+          "bytes": 110574,
+          "sha256": "ebbcc36ca91c931f1130592b41d5d9d562540f105a016fa2a4715591c61b11b5",
+          "mime": "image/jpeg"
+        },
+        "frame-compact.webm": {
+          "bytes": 90534,
+          "sha256": "54ee68faeefa1a980099574fb892544df7e21d4671faaf39e8086bfc70197686",
+          "mime": "video/webm"
+        },
+        "frame-still.png": {
+          "bytes": 286509,
+          "sha256": "d48c01101dd31ff19f5f3a42e5e79cec1e7095d538a55f0668e00e0d038c071c",
+          "mime": "image/png"
+        },
+        "portrait-mask.png": {
+          "bytes": 979,
+          "sha256": "264c9540336a086abddcbdd513de43571a00472931443e4a5709978d3d07159c",
+          "mime": "image/png"
+        },
+        "subject-compact.webm": {
+          "bytes": 136978,
+          "sha256": "ab4faa00d83d0ba40a763b10b1bb02f70fe2a2c42924c2a0423220871eec0134",
+          "mime": "video/webm"
+        },
+        "subject-still.png": {
+          "bytes": 64505,
+          "sha256": "247606ea0fdb5af0b2cc7dbc3aa8f3a29fd68313374795e1f81b74c77873f30f",
+          "mime": "image/png"
+        },
+        "thumbnail.jpg": {
+          "bytes": 8419,
+          "sha256": "016e830f8a21f2eaecaa89758faa91f904f6ebe6defa7baf00e9e2685063acae",
+          "mime": "image/jpeg"
+        },
+        "frame-small.webp": {
+          "bytes": 515060,
+          "sha256": "c89b12df27c2b624e764ca5a7129019c78b639462e74df98771b394ad99c2011",
+          "mime": "image/webp"
+        }
+      }
+    },
+    {
+      "id": "dream-book",
+      "name": "梦境之书",
+      "category": "micro-world",
+      "action": "独立书页绕书脊翻转、边缘弯曲后落下；框底书页翻动、书签飘带和花枝摆动；浮空书页前进、云带流动与城堡瀑布下落",
+      "actionLayers": [
+        "独立书页绕书脊翻转、边缘弯曲后落下",
+        "框底书页翻动、书签飘带和花枝摆动",
+        "浮空书页前进、云带流动与城堡瀑布下落"
+      ],
+      "files": {
+        "environment-compact.mp4": {
+          "bytes": 50412,
+          "sha256": "3ccd30674d2e8e294e88c1a6ddb98ebbe6b48956bd3ec675195e30035cc8952f",
+          "mime": "video/mp4"
+        },
+        "environment.jpg": {
+          "bytes": 153373,
+          "sha256": "feff50af04fcb57137873074d2c62b9237e98ee247767377dc370eb68fa2de63",
+          "mime": "image/jpeg"
+        },
+        "frame-compact.webm": {
+          "bytes": 64746,
+          "sha256": "ad44eebcb1a5cdb2638624df12adc3d301e03153e08675b97ebcb1f1d4ce5804",
+          "mime": "video/webm"
+        },
+        "frame-still.png": {
+          "bytes": 307376,
+          "sha256": "7587f17dcee62ea9bc378bf379368bed1c4287e52968ddeb48ffe8c2b3b38638",
+          "mime": "image/png"
+        },
+        "portrait-mask.png": {
+          "bytes": 3032,
+          "sha256": "869702b90844b096494db97dae85bd1c6bb8c3897f64e7cae7a67478991927f8",
+          "mime": "image/png"
+        },
+        "subject-compact.webm": {
+          "bytes": 89902,
+          "sha256": "8c4fb30b72898eca966d13a715fd0dedbd8121b40f7dc0a49495bf66c46b8ef6",
+          "mime": "video/webm"
+        },
+        "subject-still.png": {
+          "bytes": 223015,
+          "sha256": "57eb6637241cbc82897b2876a125581f72b52483d362ecd90dd9d95638de286b",
+          "mime": "image/png"
+        },
+        "thumbnail.jpg": {
+          "bytes": 11863,
+          "sha256": "ffa449bd124c47464da7a69db578789f36a2010d80ff56b2fffb253c765d34af",
+          "mime": "image/jpeg"
+        },
+        "frame-small.webp": {
+          "bytes": 552226,
+          "sha256": "f1b1ed57185cdbe4e838815fb859b31f3aa1cb3c22c8c59a45d68a63d52e032d",
+          "mime": "image/webp"
+        }
+      }
+    },
+    {
+      "id": "bottle-harbor",
+      "name": "瓶中潮汐港",
+      "category": "micro-world",
+      "action": "船体受水波起伏俯仰、帆布独立鼓动；框底海浪推进并卷起、帆船随波浮动；港口水面流动、船尾扩散波与沿岸浪花",
+      "actionLayers": [
+        "船体受水波起伏俯仰、帆布独立鼓动",
+        "框底海浪推进并卷起、帆船随波浮动",
+        "港口水面流动、船尾扩散波与沿岸浪花"
+      ],
+      "files": {
+        "environment-compact.mp4": {
+          "bytes": 70094,
+          "sha256": "2b9edbed2ceab4db1b61836479232cf8d4cddd5bdefcdcf6b144c80f6881afc2",
+          "mime": "video/mp4"
+        },
+        "environment.jpg": {
+          "bytes": 155857,
+          "sha256": "949389f1a2bbac9800e8bfddab85acb9b7de1aa772931c33bab214a7e3196cf7",
+          "mime": "image/jpeg"
+        },
+        "frame-compact.webm": {
+          "bytes": 55120,
+          "sha256": "ef0a20a9dae97ff58b9709df9fe2b73799935343ee2819a0872dabef3fd2cec9",
+          "mime": "video/webm"
+        },
+        "frame-still.png": {
+          "bytes": 285564,
+          "sha256": "31fadaa29ee9b7f330d49e8dd9bc61e3f6e6fc38ffa65bfaf2b3db7e7359aaf6",
+          "mime": "image/png"
+        },
+        "portrait-mask.png": {
+          "bytes": 1336,
+          "sha256": "8fe085e78534466a8a966fc4b8aaac39b39a2ff574aa33aaad8525e999145759",
+          "mime": "image/png"
+        },
+        "subject-compact.webm": {
+          "bytes": 215932,
+          "sha256": "a5fbe75ba19aea14cf834127a7cb1bac7e4f26d5d6bd120999d097939e7d45fa",
+          "mime": "video/webm"
+        },
+        "subject-still.png": {
+          "bytes": 139350,
+          "sha256": "d789f5a0d8a71e7d80dcb8eb975ff44951e6c85fdff5c92bf78b507bb301b096",
+          "mime": "image/png"
+        },
+        "thumbnail.jpg": {
+          "bytes": 12229,
+          "sha256": "c94c36cb818f6983a4e303b6d4cf4f4ac0651ea29827f61ec8dc3ef822f3b94b",
+          "mime": "image/jpeg"
+        },
+        "frame-small.webp": {
+          "bytes": 307928,
+          "sha256": "019cdc9c32376f06e65154918ae4181dc6bb929b5c938f32533d1fc39fbd0b24",
+          "mime": "image/webp"
+        }
+      }
+    },
+    {
+      "id": "tree-village",
+      "name": "树洞四季镇",
+      "category": "micro-world",
+      "action": "树冠与花枝错相摆动、水车连续转动；框边叶片摆动与底部水车转动；林冠受风、溪水前行与瀑布下落",
+      "actionLayers": [
+        "树冠与花枝错相摆动、水车连续转动",
+        "框边叶片摆动与底部水车转动",
+        "林冠受风、溪水前行与瀑布下落"
+      ],
+      "files": {
+        "environment-compact.mp4": {
+          "bytes": 103917,
+          "sha256": "f914b7d3d7da397cb0b0ddf1f6b887265a6fd27193b7ac58bce311b22bb2b7d2",
+          "mime": "video/mp4"
+        },
+        "environment.jpg": {
+          "bytes": 206786,
+          "sha256": "96a5c887c13009735c64a53fb0bff006b9c446521a2fcf92687362d50d695dab",
+          "mime": "image/jpeg"
+        },
+        "frame-compact.webm": {
+          "bytes": 56860,
+          "sha256": "5db915007acee5b5ec8e666605030c5af6e7c76ccfe8ad981ed6efe224d6ea54",
+          "mime": "video/webm"
+        },
+        "frame-still.png": {
+          "bytes": 319702,
+          "sha256": "24411cdc692eaaf74c2c145f6f50c74436c9e7124f0499fcc7aa04034fc12ea1",
+          "mime": "image/png"
+        },
+        "portrait-mask.png": {
+          "bytes": 1372,
+          "sha256": "8f640140d7df4e53c34993c4a663c5c80310996ad241ab172717b0b40146ed9d",
+          "mime": "image/png"
+        },
+        "subject-compact.webm": {
+          "bytes": 290652,
+          "sha256": "ca0ce579307c2cc8a0e7be9c31af95a7d3016c993dfdb7fac24eae962ad0a2f3",
+          "mime": "video/webm"
+        },
+        "subject-still.png": {
+          "bytes": 206522,
+          "sha256": "517d2dfa0915f5c026648df369db06b1e07ea3f1cb74ec56516ac1e97bd18bc9",
+          "mime": "image/png"
+        },
+        "thumbnail.jpg": {
+          "bytes": 16071,
+          "sha256": "9ff302d16a13246636094d3cb3c6b64e8239276410cea2bb1049e825a62efd71",
+          "mime": "image/jpeg"
+        },
+        "frame-small.webp": {
+          "bytes": 566154,
+          "sha256": "4c4de435dce6736cf68ff38358f198aa470d8e4bb37f7338f7844f2dc7c80d45",
+          "mime": "image/webp"
+        }
+      }
+    },
+    {
+      "id": "pocketwatch-city",
+      "name": "星尘怀表城",
+      "category": "micro-world",
+      "action": "表针前进、两组齿轮反向啮合、摆轮往复；框边机械齿轮转动，表壳与头像孔稳定；城中钟面指针运动、云带流动与瀑布下落",
+      "actionLayers": [
+        "表针前进、两组齿轮反向啮合、摆轮往复",
+        "框边机械齿轮转动，表壳与头像孔稳定",
+        "城中钟面指针运动、云带流动与瀑布下落"
+      ],
+      "files": {
+        "environment-compact.mp4": {
+          "bytes": 50421,
+          "sha256": "0d96bb986bea560e38dea7e99282dcacb5667dce23f7c83041080f7fc82bc84d",
+          "mime": "video/mp4"
+        },
+        "environment.jpg": {
+          "bytes": 160393,
+          "sha256": "80674cd0cf242e7dfa35b1103533ff2cdc4540386f1717521a0596f9a49e3b0a",
+          "mime": "image/jpeg"
+        },
+        "frame-compact.webm": {
+          "bytes": 62533,
+          "sha256": "4b7cfc7df9d39df149cce2cef0d5bfd81101cbeef7d68d6c90cc92046967e544",
+          "mime": "video/webm"
+        },
+        "frame-still.png": {
+          "bytes": 315415,
+          "sha256": "45172943b44dd38eec1829b2bc78c5d8258660496bf0df7770bbf7992a4154d7",
+          "mime": "image/png"
+        },
+        "portrait-mask.png": {
+          "bytes": 1164,
+          "sha256": "610e5883cc165d504a209731f70497a11034d027f25deae6f56ab29dc069739e",
+          "mime": "image/png"
+        },
+        "subject-compact.webm": {
+          "bytes": 312493,
+          "sha256": "24ea4c9ce2dbbeb2fc623d76fe14ed6e8bb275a0103a0415fb2b74f1377ba7bc",
+          "mime": "video/webm"
+        },
+        "subject-still.png": {
+          "bytes": 217885,
+          "sha256": "8326a03ffdbb06ebb1fe2588b8d2f6f60c5376d98eb4aa22e50e7efc1356a3b8",
+          "mime": "image/png"
+        },
+        "thumbnail.jpg": {
+          "bytes": 12604,
+          "sha256": "00b76bba76ce92cd4837f06d6fa62bb1b840b47b2ade0ab48aee08ca90a39c24",
+          "mime": "image/jpeg"
+        },
+        "frame-small.webp": {
+          "bytes": 230224,
+          "sha256": "1a2d4a73b459cff6d01cb1205e0894cd5b39eab6012e4a5d4c2cedf7925e2c7b",
+          "mime": "image/webp"
+        }
+      }
+    },
+    {
+      "id": "cloud-suitcase",
+      "name": "云海旅行箱",
+      "category": "micro-world",
+      "action": "箱盖围绕后铰链开合，微缩世界随打开显现，纸飞机穿行；框边云团翻卷、织带摆动、纸飞机沿外围飞行；远近云海流动、瀑布下落与远景滑翔机飞行",
+      "actionLayers": [
+        "箱盖围绕后铰链开合，微缩世界随打开显现，纸飞机穿行",
+        "框边云团翻卷、织带摆动、纸飞机沿外围飞行",
+        "远近云海流动、瀑布下落与远景滑翔机飞行"
+      ],
+      "files": {
+        "environment-compact.mp4": {
+          "bytes": 87098,
+          "sha256": "e994d66433c1436c03aa989115a8c75a91cc87e73dc9b7b0afc076137bae40dd",
+          "mime": "video/mp4"
+        },
+        "environment.jpg": {
+          "bytes": 155874,
+          "sha256": "cfbad3e61d93509aaab80711e70a1ac267401a4d9aff197af2bc4233bd98c858",
+          "mime": "image/jpeg"
+        },
+        "frame-compact.webm": {
+          "bytes": 53067,
+          "sha256": "c4c2f0fb8b8520fa847b8e0ac25b56b21388049560f2935e2d1e9c20825da161",
+          "mime": "video/webm"
+        },
+        "frame-still.png": {
+          "bytes": 291604,
+          "sha256": "b369000dc6775837df973a28dc822485ab6d3756c76b6d8abfc2fff6c69fd0fd",
+          "mime": "image/png"
+        },
+        "portrait-mask.png": {
+          "bytes": 1019,
+          "sha256": "7592bdd394edd5225d72eadac8accf5a2a9d2fff29623569495a252d34cb8ee1",
+          "mime": "image/png"
+        },
+        "subject-compact.webm": {
+          "bytes": 237449,
+          "sha256": "d37761c5d6ff8f74e181d8cf0cd6c9ad24681cebee53c008e01e4383e9f9ddf4",
+          "mime": "video/webm"
+        },
+        "subject-still.png": {
+          "bytes": 136958,
+          "sha256": "4ee1b0e9a9994152947651698f62b31b6a542270720f3279baf2c55152801586",
+          "mime": "image/png"
+        },
+        "thumbnail.jpg": {
+          "bytes": 13104,
+          "sha256": "292b975078ca4da200b609cf9477a264999de84727f28088230f2dc10c43ff90",
+          "mime": "image/jpeg"
+        },
+        "frame-small.webp": {
+          "bytes": 478770,
+          "sha256": "91cdd4008041d90a10f9d85abf4702e4a8826c9f473978feb34dcf4357193483",
+          "mime": "image/webp"
+        }
+      }
+    },
+    {
+      "id": "clockwork-robot",
+      "name": "发条机器人",
+      "category": "companion",
+      "action": "头部转向与肩肘招手；胸部与边框齿轮啮合旋转；作坊悬挂植物和远景云层运动",
+      "actionLayers": [
+        "头部转向与肩肘招手",
+        "胸部与边框齿轮啮合旋转",
+        "作坊悬挂植物和远景云层运动"
+      ],
+      "files": {
+        "environment-compact.mp4": {
+          "bytes": 170318,
+          "sha256": "de42563c4560d23120774077e4359c587ec30be3395cdc6382f70d9945d2f654",
+          "mime": "video/mp4"
+        },
+        "environment.jpg": {
+          "bytes": 203451,
+          "sha256": "59ceef3a1c65e884bcff7fa4444a54d3ae3282463b2c663d20dff33ea3525b1b",
+          "mime": "image/jpeg"
+        },
+        "frame-compact.webm": {
+          "bytes": 80518,
+          "sha256": "2da776a498fe89d69e5142369e5a9c94cb55a818c364e622541a22d3cacd44c2",
+          "mime": "video/webm"
+        },
+        "frame-still.png": {
+          "bytes": 237902,
+          "sha256": "e85c6376dea99b485c759cda41500fe0bbd5851873524e29cda159425a0c4851",
+          "mime": "image/png"
+        },
+        "portrait-mask.png": {
+          "bytes": 780,
+          "sha256": "31a960ef54a3e4a8a4e3951a6c459d2c576083e29f4ee0dc1390663ec8d35c60",
+          "mime": "image/png"
+        },
+        "subject-compact.webm": {
+          "bytes": 214929,
+          "sha256": "a0cc9afc3dc96f0cd7bf941c8517a9d44cba303c82772d893f31030957fc9949",
+          "mime": "video/webm"
+        },
+        "subject-still.png": {
+          "bytes": 137539,
+          "sha256": "10ebec5dd7afb4d04906f46d71ce5e676bf57f3ceceb246bb7572ce39d3fd060",
+          "mime": "image/png"
+        },
+        "thumbnail.jpg": {
+          "bytes": 16974,
+          "sha256": "a01006990477bc8dba575ffdc896dec86c4188b450377ef678d5c94fc71242ca",
+          "mime": "image/jpeg"
+        },
+        "frame-small.webp": {
+          "bytes": 404810,
+          "sha256": "8df99eab5fd0bc24b8bffdecd74fb3deb6799e9cd649d97728188666d0d69b7b",
+          "mime": "image/webp"
+        }
+      }
+    },
+    {
+      "id": "deepsea-probe",
+      "name": "深海探测器",
+      "category": "companion",
+      "action": "艇体调姿、推进器持续旋转；传感器巡视与机械臂收放；水流折射、海草与软珊瑚随流摆动",
+      "actionLayers": [
+        "艇体调姿、推进器持续旋转",
+        "传感器巡视与机械臂收放",
+        "水流折射、海草与软珊瑚随流摆动"
+      ],
+      "files": {
+        "environment-compact.mp4": {
+          "bytes": 107628,
+          "sha256": "d29ce13ad7c96effc290e12b2469b5e5f43690772408b8fff37e4807aab1348b",
+          "mime": "video/mp4"
+        },
+        "environment.jpg": {
+          "bytes": 140472,
+          "sha256": "5ec9f1913449894729e2924668c2296d902705534443cab597421469e30308a1",
+          "mime": "image/jpeg"
+        },
+        "frame-compact.webm": {
+          "bytes": 75704,
+          "sha256": "ad7644051a3a2998faaf55ebb4a5d59eebe64c691d104f79582606644e776130",
+          "mime": "video/webm"
+        },
+        "frame-still.png": {
+          "bytes": 280476,
+          "sha256": "06bb692bf8b6d5ae3ff617395214e0e79ceef335bf92993fd2676be29d2f5b97",
+          "mime": "image/png"
+        },
+        "portrait-mask.png": {
+          "bytes": 757,
+          "sha256": "091e84540e6c15b23fc6981301bfebb3ce07ee9a65d07451c29253cffa4b4c1e",
+          "mime": "image/png"
+        },
+        "subject-compact.webm": {
+          "bytes": 298199,
+          "sha256": "705064100fdcebb37f27c15d4ac2a448502cb3c87b2fe39983d5fa7f89c7cf75",
+          "mime": "video/webm"
+        },
+        "subject-still.png": {
+          "bytes": 186078,
+          "sha256": "70ebcc5eafb1df53ffbfd1015e37c269c8020a86484e24558917bb55e7cccfa0",
+          "mime": "image/png"
+        },
+        "thumbnail.jpg": {
+          "bytes": 12512,
+          "sha256": "638ebb8239c65c016c6d92d82c4b8153f8b45aacdf68c02a6df652f6cf752976",
+          "mime": "image/jpeg"
+        },
+        "frame-small.webp": {
+          "bytes": 369728,
+          "sha256": "6c33c0941aed0994970b402f2f33091f86bbd66542015a74e391a1e39aab10cf",
+          "mime": "image/webp"
+        }
+      }
+    },
+    {
+      "id": "magnet-buddy",
+      "name": "磁力积木伙伴",
+      "category": "companion",
+      "action": "转头、双臂磁力牵引；三块积木分离、绕行与重新组合；瀑布向下流动，远景浮块与植物响应",
+      "actionLayers": [
+        "转头、双臂磁力牵引",
+        "三块积木分离、绕行与重新组合",
+        "瀑布向下流动，远景浮块与植物响应"
+      ],
+      "files": {
+        "environment-compact.mp4": {
+          "bytes": 91605,
+          "sha256": "24f465367d148bf5210831d8b6341b218d366497ef893e139b9b85520bde0ded",
+          "mime": "video/mp4"
+        },
+        "environment.jpg": {
+          "bytes": 189462,
+          "sha256": "0a43353e85dd3e1962b9684e913a6cd33ddafeb28abb48893f640fbf17097f42",
+          "mime": "image/jpeg"
+        },
+        "frame-compact.webm": {
+          "bytes": 64993,
+          "sha256": "2e77341286efe9e137efcccefb925f867bf7735da8f3ddc90ff13fb0d8a35b5e",
+          "mime": "video/webm"
+        },
+        "frame-still.png": {
+          "bytes": 219104,
+          "sha256": "fa767012da7343cea80a58cdbd48a93f0d05ef4b3cf04051570e624b858f5888",
+          "mime": "image/png"
+        },
+        "portrait-mask.png": {
+          "bytes": 758,
+          "sha256": "882f56d5f61ecf27579003116f4a2d1bf42371314a73f78e83f944c0aacfa668",
+          "mime": "image/png"
+        },
+        "subject-compact.webm": {
+          "bytes": 239001,
+          "sha256": "587a05fb300a344a36b3db4ceb86215d3e589730061f7c18b94ba2e14ef44d74",
+          "mime": "video/webm"
+        },
+        "subject-still.png": {
+          "bytes": 109881,
+          "sha256": "edd1d5f753427cb7991ee418a507724ebfa94c6b34ddb35d1b320323568304c2",
+          "mime": "image/png"
+        },
+        "thumbnail.jpg": {
+          "bytes": 16773,
+          "sha256": "511b5060adc7e42f3ff6ba50b1ee690ce086b08f5e933212dad0918721a32664",
+          "mime": "image/jpeg"
+        },
+        "frame-small.webp": {
+          "bytes": 368954,
+          "sha256": "9e114153c7eb03408efc4252ba76b11c38da3dce61d2b3f02d8c5ee7188f8bb5",
+          "mime": "image/webp"
+        }
+      }
+    },
+    {
+      "id": "repair-rover",
+      "name": "履带修补车",
+      "category": "companion",
+      "action": "履带与车轮按行驶方向转动；停车后工具臂伸出、夹取、收回；框边卷盘收放与吊钩滞后轻摆；吊索和旗帜随风，远处瀑布连续流动",
+      "actionLayers": [
+        "履带与车轮按行驶方向转动",
+        "停车后工具臂伸出、夹取、收回；框边卷盘收放与吊钩滞后轻摆",
+        "吊索和旗帜随风，远处瀑布连续流动"
+      ],
+      "files": {
+        "environment-compact.mp4": {
+          "bytes": 82153,
+          "sha256": "8222a827461e3ceaabf4c1bc2b30c94cd7571ee409ed79b6dd95e7a91d5421c1",
+          "mime": "video/mp4"
+        },
+        "environment.jpg": {
+          "bytes": 191823,
+          "sha256": "dd0189e9f023ba762d6edc6158c852d6311edbbb48d6c65c6f70ff8beceb1cea",
+          "mime": "image/jpeg"
+        },
+        "frame-compact.webm": {
+          "bytes": 47440,
+          "sha256": "887609f8ad42ce6acf99204cac1ab28d888bceea87f60a4cc97e42655d086989",
+          "mime": "video/webm"
+        },
+        "frame-still.png": {
+          "bytes": 287995,
+          "sha256": "e819117067795af7de9c9306ec5676513032f1fa0fe73b2035e3ff6f4dd5e651",
+          "mime": "image/png"
+        },
+        "portrait-mask.png": {
+          "bytes": 946,
+          "sha256": "b671bcd3598ce74130328685f8c0c0d4b4dd13ed89b91a5c247c3f84d1f493e9",
+          "mime": "image/png"
+        },
+        "subject-compact.webm": {
+          "bytes": 137157,
+          "sha256": "208019b1ad202353ad5f94276f335f6673bc0af0674e679c5a97af7cffbc30c8",
+          "mime": "video/webm"
+        },
+        "subject-still.png": {
+          "bytes": 191254,
+          "sha256": "a1352786e0358d60e064320c4e98c3ff74462b6ff67129625f26e344dec69caf",
+          "mime": "image/png"
+        },
+        "thumbnail.jpg": {
+          "bytes": 16804,
+          "sha256": "7d885fbea7139b16a064a8463cb7b59e6b63960945f36538916b5f32cabfcd9e",
+          "mime": "image/jpeg"
+        },
+        "frame-small.webp": {
+          "bytes": 152434,
+          "sha256": "5278fa3cc4304d6993ccce8c9201b9c81370cfc0298d8482349d9011ab381ad3",
+          "mime": "image/webp"
+        }
+      }
+    },
+    {
+      "id": "chime-spirit",
+      "name": "风铃精灵",
+      "category": "companion",
+      "action": "铃体绕吊点摆动，铃舌滞后；丝带沿长度逐段弯曲、流苏延迟跟随；紫藤枝叶、云层、湖面与瀑布联动",
+      "actionLayers": [
+        "铃体绕吊点摆动，铃舌滞后",
+        "丝带沿长度逐段弯曲、流苏延迟跟随",
+        "紫藤枝叶、云层、湖面与瀑布联动"
+      ],
+      "files": {
+        "environment-compact.mp4": {
+          "bytes": 63622,
+          "sha256": "fa4f05b750f0d37e24e54c6b7d94d5a8f7b5c8551c963fce057088e4a6b278aa",
+          "mime": "video/mp4"
+        },
+        "environment.jpg": {
+          "bytes": 143138,
+          "sha256": "fc91e6ba06730424f8eae63cf73d8e8475d2c46c6a6db805e8a8841837ddd07a",
+          "mime": "image/jpeg"
+        },
+        "frame-compact.webm": {
+          "bytes": 91043,
+          "sha256": "c42080ea7984746a11e48f8cbe82155efc08e5b69101077f0c785287341792f2",
+          "mime": "video/webm"
+        },
+        "frame-still.png": {
+          "bytes": 267145,
+          "sha256": "6d81e082bf35b3313748c52ec11985e98f0b54bac87d4ad76fec50aa91187bd2",
+          "mime": "image/png"
+        },
+        "portrait-mask.png": {
+          "bytes": 1027,
+          "sha256": "6afe4e266876816d3e1998607831b5dad9ec836031de691da8b179af79ff1f66",
+          "mime": "image/png"
+        },
+        "subject-compact.webm": {
+          "bytes": 259538,
+          "sha256": "93d657ae04cbcbc114367000fb815fef8f4419f8d8b127c8216f4fdc24a3905d",
+          "mime": "video/webm"
+        },
+        "subject-still.png": {
+          "bytes": 160340,
+          "sha256": "6000f6852cf3824698a05e34dc9d2f458500731c0024120799a9e6d2114f4f16",
+          "mime": "image/png"
+        },
+        "thumbnail.jpg": {
+          "bytes": 11512,
+          "sha256": "df612c93deb0f04b4ccbd18aaa7b7d1b32637c07eee6cdc41326bf11c9d7a741",
+          "mime": "image/jpeg"
+        },
+        "frame-small.webp": {
+          "bytes": 522436,
+          "sha256": "e0284c46e57c47aa019b93869ec65ab9a3628fbbf460f9b619cb6ef17fd710ee",
+          "mime": "image/webp"
+        }
+      }
+    },
+    {
+      "id": "starlight-breaker",
+      "name": "星光打砖块",
+      "category": "showcase",
+      "action": "球与移动挡板反弹，逐块命中晶砖，砖块消失并重新落入。",
+      "actionLayers": [],
+      "files": {
+        "environment-compact.mp4": {
+          "bytes": 29786,
+          "sha256": "075192da41b1eebd49016565fdccac1841810e5b63f7bd8d42b5205d60c4a686",
+          "mime": "video/mp4"
+        },
+        "environment.jpg": {
+          "bytes": 126894,
+          "sha256": "f2182bd77fc40de36e49692588972b05092417781c0f244ac5fb117321aea65e",
+          "mime": "image/jpeg"
+        },
+        "frame-compact.webm": {
+          "bytes": 44125,
+          "sha256": "897556aad7c7ee26bca3a6c892d8c45ce91be1bc0dec77079c2afc4ca305d2c5",
+          "mime": "video/webm"
+        },
+        "frame-still.png": {
+          "bytes": 358224,
+          "sha256": "0d1dea760bc0f39c0b03a1379080f186b41817457f1a18ed63ef6273529a38d6",
+          "mime": "image/png"
+        },
+        "portrait-mask.png": {
+          "bytes": 1506,
+          "sha256": "bd09751832b8573930ee8b2af94eeb51dc33bba8f831dfb03bc90ad89b87b23e",
+          "mime": "image/png"
+        },
+        "subject-compact.webm": {
+          "bytes": 103642,
+          "sha256": "6a023fdb0ca93fa4cbc33f5176b06b44119c6a59556104429a934a233c73af19",
+          "mime": "video/webm"
+        },
+        "subject-still.png": {
+          "bytes": 107700,
+          "sha256": "bcdea8d5703b618f3becfa5b65f6a0711cda9565ebafbc3d3cf2f47655dd661c",
+          "mime": "image/png"
+        },
+        "thumbnail.jpg": {
+          "bytes": 11248,
+          "sha256": "244739886ba68daa5bb18c9dccd862fa2a40f38e2c23abfe5b3e0b77742015dd",
+          "mime": "image/jpeg"
+        },
+        "frame-small.webp": {
+          "bytes": 256458,
+          "sha256": "5b85ace179f4fd0464303aba51781452f332b234416fb950d894239344d463aa",
+          "mime": "image/webp"
+        }
+      }
+    },
+    {
+      "id": "pixel-defense",
+      "name": "像素塔防",
+      "category": "showcase",
+      "action": "炮塔追踪移动目标，炮身后坐并发射，目标受击后缩退；守卫旗帜摆动。",
+      "actionLayers": [],
+      "files": {
+        "environment-compact.mp4": {
+          "bytes": 52426,
+          "sha256": "37319dedc9987193e8d5dde388ddc1c08f37c9e9cb8c8871519aad139730369c",
+          "mime": "video/mp4"
+        },
+        "environment.jpg": {
+          "bytes": 190446,
+          "sha256": "c42c6f2a046155de9d374e234a155db3f97bd569ab212d3b6055a096635c670a",
+          "mime": "image/jpeg"
+        },
+        "frame-compact.webm": {
+          "bytes": 45893,
+          "sha256": "0a39128c2cea7bac1f186aca9622b1984a180f719f4621ecb54051db16455046",
+          "mime": "video/webm"
+        },
+        "frame-still.png": {
+          "bytes": 286661,
+          "sha256": "acbe8b230b92e5d926b930d4d466da9984e2ee137b1d4f6006769be225463b56",
+          "mime": "image/png"
+        },
+        "portrait-mask.png": {
+          "bytes": 1482,
+          "sha256": "76b88baf3c4f0baba27c000ccba2932bc4c26ba635a511ffa56c882ca4a71e05",
+          "mime": "image/png"
+        },
+        "subject-compact.webm": {
+          "bytes": 191520,
+          "sha256": "f801a05c85f1ce7b7af761e8b1a8db9853760e04d897eb42710f7ad70edd3d46",
+          "mime": "video/webm"
+        },
+        "subject-still.png": {
+          "bytes": 126167,
+          "sha256": "05a9fdee08b0a9f1e05f30acd020f5e8283ceb031b7627992e72c65c3989bfab",
+          "mime": "image/png"
+        },
+        "thumbnail.jpg": {
+          "bytes": 15934,
+          "sha256": "2b745c17193e66d90e26a855c70e52b8eac906b5cd1d8f07b4a2a8f504062024",
+          "mime": "image/jpeg"
+        },
+        "frame-small.webp": {
+          "bytes": 265148,
+          "sha256": "1910330e9aa8779d0056ba2f5885fd57cd8b7ca54f05bebb92aabe3800c9130f",
+          "mime": "image/webp"
+        }
+      }
+    },
+    {
+      "id": "gravity-star",
+      "name": "引力投星",
+      "category": "showcase",
+      "action": "星体发射后沿弧线掠过引力中心，环与卫星分层旋转，轨迹逐段跟随。",
+      "actionLayers": [],
+      "files": {
+        "environment-compact.mp4": {
+          "bytes": 33372,
+          "sha256": "5892870855ed6ee5ac2da8f77adc7bd8f36b4752cf9be03bf74ccab09dddbfc6",
+          "mime": "video/mp4"
+        },
+        "environment.jpg": {
+          "bytes": 101395,
+          "sha256": "e4f915fc84f896eeea0baf6b12f564eff57e5276f259c6ba2983dbccf13b983c",
+          "mime": "image/jpeg"
+        },
+        "frame-compact.webm": {
+          "bytes": 33560,
+          "sha256": "54886b25e7bc332529f879052d1027ef74f42297a15d858396f879d000919ea3",
+          "mime": "video/webm"
+        },
+        "frame-still.png": {
+          "bytes": 307510,
+          "sha256": "f3dd1751cf7a081a8223bc39bb8bde1988f4d79d3da82901f2f2c920791067ea",
+          "mime": "image/png"
+        },
+        "portrait-mask.png": {
+          "bytes": 1759,
+          "sha256": "896e0278790178f8cfb351cc53206edccf187ab614f1a1d4ae9be3f57c8c0dd4",
+          "mime": "image/png"
+        },
+        "subject-compact.webm": {
+          "bytes": 318943,
+          "sha256": "04c2c061e41b35b3a6385105a9b5579135911c2fdc73b74bb4add73c52955d2b",
+          "mime": "video/webm"
+        },
+        "subject-still.png": {
+          "bytes": 91545,
+          "sha256": "772cabd32aeabcdcc3c8d78a10f5cd651655062a6c90abb4e4d9583a37db2d8e",
+          "mime": "image/png"
+        },
+        "thumbnail.jpg": {
+          "bytes": 7291,
+          "sha256": "7dd22799630bcf036361e2b79e472f25f57343091148a570b304b2ee6b3eae67",
+          "mime": "image/jpeg"
+        },
+        "frame-small.webp": {
+          "bytes": 510712,
+          "sha256": "477e7c401a0695e63817d6f431b240fa270288d97efaa7e5656ae22158f47318",
+          "mime": "image/webp"
+        }
+      }
+    },
+    {
+      "id": "maze-treasure",
+      "name": "迷宫寻宝",
+      "category": "showcase",
+      "action": "探险者沿折线路径转向，拾取钥匙后到达宝箱，宝箱打开再合拢。",
+      "actionLayers": [],
+      "files": {
+        "environment-compact.mp4": {
+          "bytes": 86351,
+          "sha256": "f3b47a8b5c0b68e56ebdb546060ef79410b0eee25003e3c47e71619cfd7c482c",
+          "mime": "video/mp4"
+        },
+        "environment.jpg": {
+          "bytes": 251010,
+          "sha256": "e6128ce2359bd434ec6b71881488954a40e9ff4a4d457a316623d8bd2013ffcc",
+          "mime": "image/jpeg"
+        },
+        "frame-compact.webm": {
+          "bytes": 42884,
+          "sha256": "08339087bde27bc3fe142012653d92b976c2f3f15a3783a3f13719293a69798a",
+          "mime": "video/webm"
+        },
+        "frame-still.png": {
+          "bytes": 381070,
+          "sha256": "f9243464a83ee2b1674d35947f963c94d132a181cefb00a398d14d96fe42b014",
+          "mime": "image/png"
+        },
+        "portrait-mask.png": {
+          "bytes": 1682,
+          "sha256": "06a9474c5ce02d4aac297de10cd7e392b6a06a62d8b0353f99ef553e38bb832b",
+          "mime": "image/png"
+        },
+        "subject-compact.webm": {
+          "bytes": 239821,
+          "sha256": "11dc23b15d1eab6a15cf25341c964c63ae2cf878cd4ff0264df055875cf466b6",
+          "mime": "video/webm"
+        },
+        "subject-still.png": {
+          "bytes": 223722,
+          "sha256": "00218f5061cee9c10386be9957b405f770c4911709bdcc7ba800376f181c6a16",
+          "mime": "image/png"
+        },
+        "thumbnail.jpg": {
+          "bytes": 18218,
+          "sha256": "2a487d6caaf240cb456a24b1ed618b750be4e6c8648fe6e398d797ea9a9a988c",
+          "mime": "image/jpeg"
+        },
+        "frame-small.webp": {
+          "bytes": 118864,
+          "sha256": "5a211d9517008324cc8245dbf6556d579a3cbc9dc9363bf4a824857fde5aea34",
+          "mime": "image/webp"
+        }
+      }
+    },
+    {
+      "id": "star-minecart",
+      "name": "矿车运星",
+      "category": "showcase",
+      "action": "矿车沿轨道前行与过弯，轮组转动、车身随轨道起伏，星矿轻微滞后颠动。",
+      "actionLayers": [],
+      "files": {
+        "environment-compact.mp4": {
+          "bytes": 56860,
+          "sha256": "c5b9fc3e1127948348c07581cd4ad3b4e3bba0038b4c3f05d7205f598c0978e3",
+          "mime": "video/mp4"
+        },
+        "environment.jpg": {
+          "bytes": 193777,
+          "sha256": "8684fbdee3f7ba77754ed1b0f797ef0c3dc7200dfb36d2e3e054ff98e2c8d7f1",
+          "mime": "image/jpeg"
+        },
+        "frame-compact.webm": {
+          "bytes": 72210,
+          "sha256": "2d43b94d8f4e1ade990c8edbd6b9cbebb38bb2d2a06ef737218fdaabfd21489d",
+          "mime": "video/webm"
+        },
+        "frame-still.png": {
+          "bytes": 380418,
+          "sha256": "49b488ca9ec2e0ab0cb510defd36318f982c01c7f268ae2ab27b9cbfd18ee352",
+          "mime": "image/png"
+        },
+        "portrait-mask.png": {
+          "bytes": 2498,
+          "sha256": "2dd0164a0ac7055fa8370d26db5dc10a810ed98b7e35f1cc9219fbc9e2136e09",
+          "mime": "image/png"
+        },
+        "subject-compact.webm": {
+          "bytes": 388092,
+          "sha256": "03895704c247cb89aeb410b3329a321c39caabac713db7f180154fd3c5415ef8",
+          "mime": "video/webm"
+        },
+        "subject-still.png": {
+          "bytes": 128284,
+          "sha256": "69fe1f182d1730bab6e3393cd9f8f99eaaf348704e3e54cda6792fa075e6aea1",
+          "mime": "image/png"
+        },
+        "thumbnail.jpg": {
+          "bytes": 14683,
+          "sha256": "5e662c4bc90c18837544815ac8e5a1fe08beb77f72c0a2002e8310caaedbfa7d",
+          "mime": "image/jpeg"
+        },
+        "frame-small.webp": {
+          "bytes": 65122,
+          "sha256": "0376d7490d44fc6fb858cbdded85d9c7059ac3fd63c57884079041ec9db3cd07",
+          "mime": "image/webp"
+        }
+      }
+    }
+  ]
+}
