@@ -27,7 +27,6 @@ const CLOUD_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIs
 const AUTH_KEY = "dsh-whale-dream:community:auth:v1";
 const IDENTITY_KEY = "dsh-whale-dream:community:identity:v1";
 const PENDING_KEY = "dsh-whale-dream:community:pending:v1";
-const INVITE_CODE = "WHALE-V1";
 const HOUR = 3600 * 1000;
 const DAY = 24 * HOUR;
 const MAX_IMAGES = 9;
@@ -48,7 +47,7 @@ const BOARDS = [
 ];
 
 const ANNOUNCEMENTS = [
-  "星球云端内测中：邮箱注册 + 邀请码准入，内容已同步到云端。",
+  "星球云端开放注册：邮箱验证码注册，内容已同步到云端。",
   "八个官方星域已开放，帖子、评论、点赞与收藏会实时保存。",
   "遇到问题请发到「鲸梦交流」；举报入口在帖子详情页。",
 ];
@@ -247,7 +246,7 @@ function readAuth() {
 }
 
 function cloudError(status, data) {
-  const code = (data && (data.code || data.error_code)) || "";
+  const code = (data && (data.error_code || data.code)) || "";
   const message = (data && (data.msg || data.message || data.error_description || data.error)) || "HTTP " + status;
   return new CloudError(String(message), status, String(code));
 }
@@ -415,6 +414,117 @@ async function signIn(email, password) {
   return session;
 }
 
+// 修改密码前先用当前密码重新登录验证，再调用 Supabase 的更新用户接口。
+async function changePassword(currentPassword, nextPassword) {
+  const auth = await restoreAuth();
+  const email = auth?.user?.email || "";
+  if (!email) throw new CloudError("not_authenticated", 401, "not_authenticated");
+  const verified = await authCall("/auth/v1/token?grant_type=password", { email, password: currentPassword });
+  const fresh = normalizeAuth(verified);
+  if (!fresh) throw new CloudError("invalid_credentials", 400, "invalid_credentials");
+  const response = await request(CLOUD_URL + "/auth/v1/user", {
+    method: "PUT",
+    headers: {
+      apikey: CLOUD_KEY,
+      Authorization: "Bearer " + fresh.access_token,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ password: nextPassword }),
+  });
+  const text = await response.text();
+  let data = null;
+  try {
+    data = text ? JSON.parse(text) : null;
+  } catch (error) {
+    data = { message: text };
+  }
+  if (!response.ok) throw cloudError(response.status, data);
+  setAuth(fresh);
+  return true;
+}
+
+// 发送密码重置验证码：Supabase 的“重置密码”邮件模板需要包含 {{ .Token }}。
+async function requestPasswordReset(email) {
+  const response = await request(CLOUD_URL + "/auth/v1/recover", {
+    method: "POST",
+    headers: { apikey: CLOUD_KEY, "Content-Type": "application/json" },
+    body: JSON.stringify({ email }),
+  });
+  if (!response.ok) {
+    const text = await response.text();
+    let data = null;
+    try {
+      data = text ? JSON.parse(text) : null;
+    } catch (error) {
+      data = { message: text };
+    }
+    throw cloudError(response.status, data);
+  }
+  return true;
+}
+
+// 用恢复会话设置新密码；不保留恢复会话。
+async function updatePasswordWithSession(session, nextPassword) {
+  const response = await request(CLOUD_URL + "/auth/v1/user", {
+    method: "PUT",
+    headers: {
+      apikey: CLOUD_KEY,
+      Authorization: "Bearer " + session.access_token,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ password: nextPassword }),
+  });
+  const text = await response.text();
+  let data = null;
+  try {
+    data = text ? JSON.parse(text) : null;
+  } catch (error) {
+    data = { message: text };
+  }
+  if (!response.ok) throw cloudError(response.status, data);
+  clearAuth();
+  clearCommunityIdentity();
+  return true;
+}
+
+// 用邮件验证码换取恢复会话，再设置新密码。
+async function resetPasswordWithCode(email, token, nextPassword) {
+  const verified = await authCall("/auth/v1/verify", { type: "recovery", email, token });
+  const session = normalizeAuth(verified);
+  if (!session) throw new CloudError("invalid_code", 400, "invalid_code");
+  return updatePasswordWithSession(session, nextPassword);
+}
+
+// 免费版 Supabase 邮件只有重置链接：从链接里取出 token 换取恢复会话。
+async function resetPasswordWithLink(tokenHash, nextPassword) {
+  let verified;
+  try {
+    verified = await authCall("/auth/v1/verify", { type: "recovery", token_hash: tokenHash });
+  } catch (error) {
+    if (error && (error.code === "network_error" || error.code === "timeout")) throw error;
+    throw new CloudError("invalid_code", 400, "invalid_code");
+  }
+  const session = normalizeAuth(verified);
+  if (!session) throw new CloudError("invalid_code", 400, "invalid_code");
+  return updatePasswordWithSession(session, nextPassword);
+}
+
+// 恢复凭证既可能是邮件验证码（Supabase 支持 6–10 位），也可能是邮件里的重置链接。
+function parseRecoveryProof(value) {
+  const text = String(value || "").replace(/&amp;/g, "&").trim();
+  if (/^\d{6,10}$/.test(text)) return { kind: "code", value: text };
+  const match = text.match(/[?&#](?:token_hash|token)=([^&#\s"'>]+)/i);
+  const raw = match ? match[1] : (/^[A-Za-z0-9_-]{16,}$/.test(text) ? text : "");
+  if (!raw) return null;
+  let token = raw;
+  try {
+    token = decodeURIComponent(raw);
+  } catch (error) {
+    /* 已经是明文 token */
+  }
+  return token ? { kind: "link", value: token } : null;
+}
+
 async function signOut() {
   const token = authSession && authSession.access_token;
   if (token) {
@@ -442,14 +552,24 @@ async function fetchProfile() {
   return Array.isArray(rows) && rows.length ? rows[0] : null;
 }
 
-async function redeemInvite(code, nickname) {
-  const result = await api("/rest/v1/rpc/community_redeem_invite", {
+// 邮箱验证通过后直接建立星球档案，不再需要邀请码。
+async function registerProfile(nickname) {
+  const result = await api("/rest/v1/rpc/community_register_profile", {
     method: "POST",
-    body: { p_code: code, p_nickname: nickname },
+    body: { p_nickname: nickname },
   });
   const row = Array.isArray(result) ? result[0] : result;
-  if (!row || !row.id) throw new CloudError("invalid_invite", 0, "invalid_invite");
+  if (!row || !row.id) throw new CloudError("profile_not_saved", 0, "profile_not_saved");
   return row;
+}
+
+// 用注册邮件里的验证码完成邮箱确认，并取得登录会话。
+async function verifySignup(email, token) {
+  const data = await authCall("/auth/v1/verify", { type: "signup", email, token });
+  const session = normalizeAuth(data);
+  if (!session) throw new CloudError("invalid_code", 400, "invalid_code");
+  setAuth(session);
+  return session;
 }
 
 function readPending() {
@@ -537,18 +657,15 @@ function friendlyError(error) {
   const token = (code + " " + message).toLowerCase();
   if (token.includes("network_error") || token.includes("failed to fetch")) return "网络连接失败，请检查网络后重试。";
   if (token.includes("timeout")) return "连接星球服务超时，可能是网络限制。请检查网络或开启代理后重试。";
-  if (token.includes("invalid_invite")) return "邀请码无效，请向管理员获取有效邀请码。";
-  if (token.includes("invite_expired")) return "邀请码已过期。";
-  if (token.includes("invite_exhausted")) return "邀请码使用次数已用完。";
-  if (token.includes("invite_disabled")) return "邀请码已停用。";
   if (token.includes("invalid_nickname")) return "昵称需要 2-16 个字符。";
-  if (token.includes("email_not_confirmed")) return "邮箱还没有确认，请先点击确认邮件里的链接。";
+  if (token.includes("email_not_confirmed")) return "邮箱还没有确认，请先输入邮件验证码。";
   if (token.includes("invalid_credentials") || token.includes("invalid login")) return "邮箱或密码不正确。";
   if (token.includes("user_already_exists") || token.includes("already registered")) return "该邮箱已注册，请直接登录。";
   if (token.includes("signup_disabled")) return "注册暂未开放。";
   if (token.includes("email_address_invalid")) return "邮箱地址无效。";
   if (token.includes("weak_password")) return "密码强度不足，请至少使用 8 位字符。";
-  if (token.includes("over_email_send_rate_limit") || token.includes("rate limit")) return "邮件发送太频繁，请稍后再试。";
+  if (token.includes("otp_expired") || token.includes("invalid_otp") || token.includes("invalid_code")) return "验证码或重置链接不正确、已过期，请重新发送重置邮件。";
+  if (token.includes("over_email_send_rate_limit") || token.includes("rate limit")) return "Supabase 默认邮件服务每小时最多发送 2 封，换邮箱也不能绕过。请约 1 小时后重试；若已收到过重置邮件，可在下方直接粘贴邮件里的链接。";
   if (token.includes("profile_required")) return "请先完成星球身份绑定。";
   if (token.includes("not_authenticated") || token.includes("jwt")) return "登录已过期，请重新登录。";
   if (token.includes("delete_unavailable")) return "该内容已不可用，或当前账号无权删除。";
@@ -1009,6 +1126,7 @@ export function installCommunity(ctx, React, options = {}) {
   if (!slots || typeof slots.inject !== "function") return { dispose() {} };
 
   const h = React.createElement;
+  const Fragment = React.Fragment;
   const { useEffect, useLayoutEffect, useMemo, useRef, useState } = React;
   const languageOption = options.language;
   const language = typeof languageOption === "function" ? languageOption : () => languageOption || "zh";
@@ -1281,6 +1399,205 @@ export function installCommunity(ctx, React, options = {}) {
     );
   }
 
+  function RecoveryDialog({ initialEmail, onClose }) {
+    const [step, setStep] = useState("email");
+    const [email, setEmail] = useState(initialEmail || "");
+    const [code, setCode] = useState("");
+    const [password, setPassword] = useState("");
+    const [confirm, setConfirm] = useState("");
+    const [visible, setVisible] = useState(false);
+    const [busy, setBusy] = useState(false);
+    const [error, setError] = useState("");
+    const [notice, setNotice] = useState("");
+    const [cooldown, setCooldown] = useState(0);
+
+    useEffect(() => {
+      if (!cooldown) return;
+      const timer = window.setInterval(() => setCooldown(value => value > 0 ? value - 1 : 0), 1000);
+      return () => window.clearInterval(timer);
+    }, [cooldown]);
+
+    async function sendCode(event) {
+      event?.preventDefault();
+      if (busy || cooldown > 0) return;
+      setError("");
+      const address = email.trim().toLowerCase();
+      if (!EMAIL_PATTERN.test(address)) {
+        setError(local("请输入有效的邮箱地址。", "Enter a valid email address."));
+        return;
+      }
+      setBusy(true);
+      try {
+        await requestPasswordReset(address);
+        setEmail(address);
+        setStep("code");
+        setCooldown(60);
+        setNotice(local(
+          "重置邮件已发送到 " + address + "。请复制邮件里的重置链接粘贴到下方（不要先在浏览器打开）；若邮件含验证码也可直接输入。没收到请检查垃圾邮件，验证码 1 小时内有效。",
+          "Reset email sent to " + address + ". Paste the reset link from the email below (don't open it first), or enter the code if present. Check spam if it doesn't arrive; the code is valid for 1 hour."
+        ));
+      } catch (err) {
+        setError(friendlyError(err));
+      } finally {
+        setBusy(false);
+      }
+    }
+
+    async function reset(event) {
+      event.preventDefault();
+      if (busy) return;
+      setError("");
+      const proof = parseRecoveryProof(code);
+      if (!proof) {
+        setError(local("请输入邮件验证码，或粘贴邮件里的重置链接。", "Enter the code from the email or paste the reset link."));
+        return;
+      }
+      if (Array.from(password).length < 8) {
+        setError(local("新密码至少需要 8 位。", "New password must be at least 8 characters."));
+        return;
+      }
+      if (password !== confirm) {
+        setError(local("两次输入的新密码不一致。", "New passwords do not match."));
+        return;
+      }
+      setBusy(true);
+      try {
+        if (proof.kind === "code") await resetPasswordWithCode(email.trim().toLowerCase(), proof.value, password);
+        else await resetPasswordWithLink(proof.value, password);
+        setStep("done");
+        setNotice(local("密码已更新，请回到登录页使用新密码登录。", "Password updated. Sign in with the new password."));
+      } catch (err) {
+        setError(friendlyError(err));
+      } finally {
+        setBusy(false);
+      }
+    }
+
+    const heading = step === "email"
+      ? local("输入注册邮箱，我们会发送重置邮件。", "Enter your email; we'll send a reset email.")
+      : step === "code"
+        ? local("粘贴邮件里的重置链接，或输入邮件验证码，再设置新密码。", "Paste the reset link from the email, or enter the email code, then set a new password.")
+        : local("密码已重置。", "Password reset complete.");
+
+    return (
+      <div className="wd-cm-modal wd-cm-recovery-modal" role="dialog" aria-modal="true">
+        <form className="wd-cm-modal-card wd-cm-password-card" onSubmit={event => {
+          event.preventDefault();
+          if (step === "code") reset(event);
+          else if (step === "email") sendCode(event);
+        }}>
+          <div className="wd-cm-modal-head">
+            <div>
+              <h2>{local("找回星球密码", "Reset Planet password")}</h2>
+              <p>{heading}</p>
+            </div>
+            <button type="button" className="wd-cm-close" onClick={onClose} aria-label={local("关闭", "Close")}>
+              <Icon name="close" size={16} />
+            </button>
+          </div>
+          <div className="wd-cm-modal-body">
+            {step === "email" ? (
+              <>
+                <label className="wd-cm-field">
+                  <span>{local("注册邮箱", "Account email")}</span>
+                  <input
+                    className="wd-cm-input"
+                    type="email"
+                    autoComplete="email"
+                    value={email}
+                    placeholder="you@example.com"
+                    onChange={event => setEmail(event.target.value)}
+                    disabled={busy}
+                  />
+                </label>
+                <p className="wd-cm-hint">{local("邮件可能被归入垃圾箱；验证码 1 小时内有效。", "The email may land in spam; the code is valid for 1 hour.")}</p>
+                <button type="button" className="wd-cm-link-btn" onClick={() => {
+                  setError("");
+                  setStep("code");
+                  setNotice(local("请粘贴邮件里的重置链接（不要先在浏览器打开），或输入邮件验证码。", "Paste the reset link from the email (don't open it first), or enter the email code."));
+                }}>
+                  {local("已收到邮件？直接粘贴链接", "Already have the email? Paste the link")}
+                </button>
+              </>
+            ) : null}
+            {step === "code" ? (
+              <>
+                <p className="wd-cm-hint">{notice}</p>
+                <label className="wd-cm-field">
+                  <span>{local("验证码或重置链接", "Code or reset link")}</span>
+                  <input
+                    className={"wd-cm-input wd-cm-code-input" + (code.length > 12 ? " is-link" : "")}
+                    autoComplete="one-time-code"
+                    value={code}
+                    placeholder={local("邮件验证码 / 粘贴链接", "Email code / paste link")}
+                    spellCheck={false}
+                    onChange={event => setCode(event.target.value)}
+                    disabled={busy}
+                  />
+                </label>
+                <label className="wd-cm-field">
+                  <span>{local("新密码", "New password")}</span>
+                  <input
+                    className="wd-cm-input"
+                    type={visible ? "text" : "password"}
+                    autoComplete="new-password"
+                    value={password}
+                    placeholder={local("至少 8 位", "At least 8 characters")}
+                    onChange={event => setPassword(event.target.value)}
+                    disabled={busy}
+                  />
+                </label>
+                <label className="wd-cm-field">
+                  <span>{local("确认新密码", "Confirm new password")}</span>
+                  <input
+                    className="wd-cm-input"
+                    type={visible ? "text" : "password"}
+                    autoComplete="new-password"
+                    value={confirm}
+                    placeholder={local("再次输入", "Repeat password")}
+                    onChange={event => setConfirm(event.target.value)}
+                    disabled={busy}
+                  />
+                </label>
+                <label className="wd-cm-gate-remember">
+                  <input type="checkbox" checked={visible} onChange={event => setVisible(event.target.checked)} />
+                  <span>{local("显示密码", "Show passwords")}</span>
+                </label>
+              </>
+            ) : null}
+            {step === "done" ? <p className="wd-cm-password-ok">{notice}</p> : null}
+            {error ? <p className="wd-cm-error">{error}</p> : null}
+          </div>
+          <div className="wd-cm-modal-buttons">
+            {step === "done" ? (
+              <button type="button" className="wd-cm-btn wd-cm-btn-primary" onClick={onClose}>
+                {local("返回登录", "Back to sign in")}
+              </button>
+            ) : (
+              <>
+                <button type="button" className="wd-cm-btn wd-cm-btn-soft" onClick={onClose} disabled={busy}>
+                  {local("取消", "Cancel")}
+                </button>
+                {step === "code" ? (
+                  <button type="button" className="wd-cm-btn wd-cm-btn-soft" onClick={sendCode} disabled={busy || cooldown > 0}>
+                    {cooldown > 0
+                      ? local("重新发送 (" + cooldown + "s)", "Resend (" + cooldown + "s)")
+                      : local("重新发送", "Resend")}
+                  </button>
+                ) : null}
+                <button type="submit" className="wd-cm-btn wd-cm-btn-primary" disabled={busy}>
+                  {step === "code"
+                    ? busy ? local("重置中…", "Resetting…") : local("重置密码", "Reset password")
+                    : busy ? local("发送中…", "Sending…") : local("发送重置邮件", "Send reset email")}
+                </button>
+              </>
+            )}
+          </div>
+        </form>
+      </div>
+    );
+  }
+
   function Gate({ onEnter, initialMode = "login", initialNotice = "" }) {
     const pending = readPending();
     const [rememberedEmail] = useState(() => {
@@ -1289,7 +1606,9 @@ export function installCommunity(ctx, React, options = {}) {
     });
     const [remember, setRemember] = useState(Boolean(rememberedEmail));
     const [mode, setMode] = useState(initialMode);
-    const [invite, setInvite] = useState((pending && pending.invite) || "");
+    const [signupStep, setSignupStep] = useState("form");
+    const [signupCode, setSignupCode] = useState("");
+    const [signupCooldown, setSignupCooldown] = useState(0);
     const [email, setEmail] = useState(() => initialMode === "login" ? rememberedEmail || pending?.email || "" : pending?.email || "");
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
@@ -1297,6 +1616,7 @@ export function installCommunity(ctx, React, options = {}) {
     const [error, setError] = useState("");
     const [notice, setNotice] = useState(initialNotice);
     const [busy, setBusy] = useState(false);
+    const [recovering, setRecovering] = useState(false);
     const [online, setOnline] = useState(null);
     const [checking, setChecking] = useState(false);
     const setupMode = mode === "setup";
@@ -1311,17 +1631,43 @@ export function installCommunity(ctx, React, options = {}) {
       return () => { alive = false; };
     }, []);
 
+    useEffect(() => {
+      if (!signupCooldown) return;
+      const timer = window.setInterval(() => setSignupCooldown(value => value > 0 ? value - 1 : 0), 1000);
+      return () => window.clearInterval(timer);
+    }, [signupCooldown]);
+
     function switchMode(next) {
       if (busy) return;
       setMode(next);
+      setSignupStep("form");
+      setSignupCode("");
       setShowPassword(false);
       setError("");
       setNotice("");
     }
 
-    function fillDemoCode() {
-      setInvite(INVITE_CODE);
+    function backToSignupForm() {
+      if (busy) return;
+      setSignupStep("form");
+      setSignupCode("");
       setError("");
+      setNotice("");
+    }
+
+    async function resendSignupCode() {
+      if (busy || signupCooldown > 0) return;
+      setError("");
+      setBusy(true);
+      try {
+        await resendConfirmation(email.trim().toLowerCase());
+        setSignupCooldown(60);
+        setNotice(local("验证码已重新发送，请查收邮件（没收到请检查垃圾邮件）。", "Code resent. Check your inbox and spam folder."));
+      } catch (failure) {
+        setError(friendlyError(failure));
+      } finally {
+        setBusy(false);
+      }
     }
 
     async function checkService() {
@@ -1339,7 +1685,6 @@ export function installCommunity(ctx, React, options = {}) {
         await signOut();
       } finally {
         setMode("login");
-        setInvite("");
         setNickname("");
         setPassword("");
         setError("");
@@ -1355,7 +1700,6 @@ export function installCommunity(ctx, React, options = {}) {
       const fields = new FormData(event.currentTarget);
       const address = String(fields.get("username") ?? email).trim().toLowerCase();
       const submittedPassword = String(fields.get("password") ?? password);
-      const code = invite.trim().toUpperCase();
       const name = nickname.trim();
       const nameLength = Array.from(name).length;
       try {
@@ -1383,15 +1727,14 @@ export function installCommunity(ctx, React, options = {}) {
           let profile = await fetchProfile();
           if (!profile) {
             const saved = readPending();
-            if (saved && saved.email === address && saved.invite) {
+            if (saved && saved.email === address && saved.nickname) {
               try {
-                profile = await redeemInvite(saved.invite, saved.nickname);
+                profile = await registerProfile(saved.nickname);
                 clearPending();
               } catch (failure) {
                 setMode("setup");
-                setInvite(saved.invite || "");
                 setNickname(saved.nickname || "");
-                setNotice(local("登录成功，请补全邀请码和昵称完成星球身份绑定。", "Signed in. Bind your Planet identity to continue."));
+                setNotice(local("登录成功，请填写昵称完成星球身份绑定。", "Signed in. Add a nickname to finish binding."));
                 setError(friendlyError(failure));
                 return;
               }
@@ -1399,17 +1742,26 @@ export function installCommunity(ctx, React, options = {}) {
           }
           if (!profile) {
             setMode("setup");
-            setNotice(local("登录成功，请填写邀请码和昵称完成星球身份绑定。", "Signed in. Bind your Planet identity to continue."));
+            setNotice(local("登录成功，请填写昵称完成星球身份绑定。", "Signed in. Add a nickname to finish binding."));
             return;
           }
           await onEnter(profile);
           return;
         }
 
-        if (!code) {
-          setError(local("请输入邀请码。", "Enter your invite code."));
+        if (registerMode && signupStep === "verify") {
+          if (!/^\d{6,10}$/.test(signupCode.trim())) {
+            setError(local("请输入邮件里的验证码。", "Enter the code from the email."));
+            return;
+          }
+          setBusy(true);
+          await verifySignup(address, signupCode.trim());
+          const profile = await registerProfile(name || readPending()?.nickname || "");
+          clearPending();
+          await onEnter(profile);
           return;
         }
+
         if (nameLength < 2 || nameLength > 16) {
           setError(local("昵称需要 2-16 个字符。", "Nickname must be 2-16 characters."));
           return;
@@ -1417,7 +1769,7 @@ export function installCommunity(ctx, React, options = {}) {
 
         if (setupMode) {
           setBusy(true);
-          const profile = await redeemInvite(code, name);
+          const profile = await registerProfile(name);
           clearPending();
           await onEnter(profile);
           return;
@@ -1432,26 +1784,22 @@ export function installCommunity(ctx, React, options = {}) {
           return;
         }
         setBusy(true);
-        savePending({ email: address, invite: code, nickname: name, at: Date.now() });
+        savePending({ email: address, nickname: name, at: Date.now() });
         const result = await signUp(address, password, name);
-        if (result.needsConfirm) {
-          setNotice(local(
-            "确认邮件已发送到 " + address + "。点击邮件里的确认链接后，回到这里登录。",
-            "Confirmation email sent to " + address + ". Open the link, then sign in here."
-          ));
-          setMode("login");
-          setPassword("");
-          return;
-        }
-        try {
-          const profile = await redeemInvite(code, name);
+        if (result.session) {
+          const profile = await registerProfile(name);
           clearPending();
           await onEnter(profile);
-        } catch (failure) {
-          setMode("setup");
-          setNotice(local("账号已创建，请确认邀请码后完成星球身份绑定。", "Account created. Finish binding your Planet identity."));
-          setError(friendlyError(failure));
+          return;
         }
+        setSignupStep("verify");
+        setSignupCode("");
+        setSignupCooldown(60);
+        setPassword("");
+        setNotice(local(
+          "验证码已发送到 " + address + "。请输入邮件里的验证码；没收到请检查垃圾邮件。",
+          "Code sent to " + address + ". Enter the code from the email; check spam if needed."
+        ));
       } catch (failure) {
         setError(friendlyError(failure));
       } finally {
@@ -1462,12 +1810,14 @@ export function installCommunity(ctx, React, options = {}) {
     const head = setupMode
       ? {
         title: local("绑定星球身份", "Bind your identity"),
-        text: local("登录成功，填写邀请码和昵称即可进入星球。", "Signed in. Add an invite code and nickname."),
+        text: local("登录成功，填写昵称即可进入星球。", "Signed in. Choose a nickname to enter."),
       }
       : registerMode
         ? {
           title: local("加入星球", "Join Planet"),
-          text: local("使用邀请码和邮箱注册，首次登录前需要确认邮件。", "Register with an invite and email, then confirm your email."),
+          text: signupStep === "verify"
+            ? local("输入邮件里的验证码，验证后即可进入星球。", "Enter the code from your email to join.")
+            : local("用邮箱注册，验证码确认后即可加入星球。", "Sign up with email and confirm it with a code."),
         }
         : {
           title: local("欢迎回来", "Welcome back"),
@@ -1479,7 +1829,9 @@ export function installCommunity(ctx, React, options = {}) {
       : setupMode
         ? local("完成绑定并进入", "Finish and enter")
         : registerMode
-          ? local("注册并发送确认邮件", "Register")
+          ? signupStep === "verify"
+            ? local("验证并进入", "Verify and enter")
+            : local("注册并发送验证码", "Sign up and send code")
           : local("登录并进入", "Sign in");
 
     return (
@@ -1496,7 +1848,7 @@ export function installCommunity(ctx, React, options = {}) {
               </div>
               <span className="wd-cm-gate-badge">
                 <i className="wd-cm-gate-badge-dot" aria-hidden="true" />
-                {local("邀请码内测", "Invite beta")}
+                {local("邮箱验证码注册", "Email code signup")}
               </span>
             </div>
             <div className="wd-cm-gate-story-bottom">
@@ -1560,71 +1912,7 @@ export function installCommunity(ctx, React, options = {}) {
               </div>
             ) : null}
             <form onSubmit={submit} noValidate aria-busy={busy}>
-              {registerMode || setupMode ? (
-                <label className="wd-cm-field">
-                  <span className="wd-cm-field-label-row">
-                    <span>{local("邀请码", "Invite code")}</span>
-                    <button type="button" className="wd-cm-link-btn wd-cm-link-btn-inline" onClick={fillDemoCode}>
-                      <Icon name="spark" size={11} />
-                      {local("填入 ", "Use ")}<code>{INVITE_CODE}</code>
-                    </button>
-                  </span>
-                  <span className="wd-cm-input-wrap">
-                    <Icon name="ticket" size={16} className="wd-cm-input-icon" />
-                    <input
-                      className="wd-cm-input"
-                      value={invite}
-                      autoComplete="off"
-                      placeholder={INVITE_CODE}
-                      onChange={event => setInvite(event.target.value)}
-                    />
-                  </span>
-                </label>
-              ) : null}
-              {!setupMode ? (
-                <label className="wd-cm-field">
-                  <span>{local("邮箱", "Email")}</span>
-                  <span className="wd-cm-input-wrap">
-                    <Icon name="mail" size={16} className="wd-cm-input-icon" />
-                    <input
-                      className="wd-cm-input"
-                      type="email"
-                      name="username"
-                      value={email}
-                      autoComplete="username"
-                      placeholder="you@example.com"
-                      onChange={event => setEmail(event.target.value)}
-                    />
-                  </span>
-                </label>
-              ) : null}
-              {!setupMode ? (
-                <label className="wd-cm-field">
-                  <span>{local("密码", "Password")}</span>
-                  <span className="wd-cm-input-wrap wd-cm-input-wrap-password">
-                    <Icon name="lock" size={16} className="wd-cm-input-icon" />
-                    <input
-                      className="wd-cm-input"
-                      type={showPassword ? "text" : "password"}
-                      name="password"
-                      value={password}
-                      autoComplete={registerMode ? "new-password" : "current-password"}
-                      placeholder={local("至少 8 位", "At least 8 characters")}
-                      onChange={event => setPassword(event.target.value)}
-                    />
-                    <button
-                      type="button"
-                      className="wd-cm-password-toggle"
-                      aria-label={showPassword ? local("隐藏密码", "Hide password") : local("显示密码", "Show password")}
-                      aria-pressed={showPassword}
-                      onClick={() => setShowPassword(value => !value)}
-                    >
-                      <Icon name={showPassword ? "eyeOff" : "eye"} size={16} />
-                    </button>
-                  </span>
-                </label>
-              ) : null}
-              {registerMode || setupMode ? (
+              {setupMode || (registerMode && signupStep === "form") ? (
                 <label className="wd-cm-field">
                   <span>{local("星球昵称", "Nickname")}</span>
                   <span className="wd-cm-input-wrap">
@@ -1639,6 +1927,94 @@ export function installCommunity(ctx, React, options = {}) {
                     />
                   </span>
                 </label>
+              ) : null}
+              {registerMode && signupStep === "verify" ? (
+                <>
+                  <div className="wd-cm-gate-verify-email">
+                    <Icon name="mail" size={14} />
+                    <span>{email}</span>
+                    <button type="button" className="wd-cm-link-btn" onClick={backToSignupForm} disabled={busy}>
+                      {local("修改邮箱", "Change email")}
+                    </button>
+                  </div>
+                  <label className="wd-cm-field">
+                    <span>{local("邮件验证码", "Email code")}</span>
+                    <span className="wd-cm-input-wrap">
+                      <Icon name="ticket" size={16} className="wd-cm-input-icon" />
+                      <input
+                        className="wd-cm-input"
+                        value={signupCode}
+                        inputMode="numeric"
+                        autoComplete="one-time-code"
+                        placeholder={local("输入邮件里的验证码", "Enter the code from the email")}
+                        onChange={event => setSignupCode(event.target.value.replace(/\D/g, "").slice(0, 10))}
+                        disabled={busy}
+                      />
+                    </span>
+                  </label>
+                  <div className="wd-cm-gate-forgot">
+                    <button type="button" className="wd-cm-link-btn" onClick={resendSignupCode} disabled={busy || signupCooldown > 0}>
+                      {signupCooldown > 0
+                        ? local("重新发送 (" + signupCooldown + "s)", "Resend (" + signupCooldown + "s)")
+                        : local("重新发送验证码", "Resend code")}
+                    </button>
+                    <small>{local("没收到请检查垃圾邮件", "Check spam if it doesn't arrive")}</small>
+                  </div>
+                </>
+              ) : null}
+              {!setupMode && !(registerMode && signupStep === "verify") ? (
+                <>
+                  <label className="wd-cm-field">
+                    <span>{local("邮箱", "Email")}</span>
+                    <span className="wd-cm-input-wrap">
+                      <Icon name="mail" size={16} className="wd-cm-input-icon" />
+                      <input
+                        className="wd-cm-input"
+                        type="email"
+                        name="username"
+                        value={email}
+                        autoComplete="username"
+                        placeholder="you@example.com"
+                        onChange={event => setEmail(event.target.value)}
+                      />
+                    </span>
+                  </label>
+                  <label className="wd-cm-field">
+                    <span>{local("密码", "Password")}</span>
+                    <span className="wd-cm-input-wrap wd-cm-input-wrap-password">
+                      <Icon name="lock" size={16} className="wd-cm-input-icon" />
+                      <input
+                        className="wd-cm-input"
+                        type={showPassword ? "text" : "password"}
+                        name="password"
+                        value={password}
+                        autoComplete={registerMode ? "new-password" : "current-password"}
+                        placeholder={local("至少 8 位", "At least 8 characters")}
+                        onChange={event => setPassword(event.target.value)}
+                      />
+                      <button
+                        type="button"
+                        className="wd-cm-password-toggle"
+                        aria-label={showPassword ? local("隐藏密码", "Hide password") : local("显示密码", "Show password")}
+                        aria-pressed={showPassword}
+                        onClick={() => setShowPassword(value => !value)}
+                      >
+                        <Icon name={showPassword ? "eyeOff" : "eye"} size={16} />
+                      </button>
+                    </span>
+                  </label>
+                </>
+              ) : null}
+              {mode === "login" ? (
+                <div className="wd-cm-gate-forgot">
+                  <button type="button" className="wd-cm-link-btn" onClick={event => {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    setRecovering(true);
+                  }}>
+                    {local("忘记密码？", "Forgot password?")}
+                  </button>
+                </div>
               ) : null}
               {mode === "login" ? (
                 <label className="wd-cm-gate-remember">
@@ -1665,6 +2041,7 @@ export function installCommunity(ctx, React, options = {}) {
             </div>
           </section>
         </div>
+        {recovering ? <RecoveryDialog initialEmail={email} onClose={() => setRecovering(false)} /> : null}
       </div>
     );
   }
@@ -2729,6 +3106,103 @@ export function installCommunity(ctx, React, options = {}) {
     );
   }
 
+  function PasswordEditor({ onClose }) {
+    const [current, setCurrent] = useState("");
+    const [next, setNext] = useState("");
+    const [confirm, setConfirm] = useState("");
+    const [visible, setVisible] = useState(false);
+    const [busy, setBusy] = useState(false);
+    const [status, setStatus] = useState("");
+    const [error, setError] = useState("");
+
+    async function submit(event) {
+      event.preventDefault();
+      if (busy) return;
+      setError("");
+      setStatus("");
+      if (!current) {
+        setError(local("请输入当前密码。", "Enter your current password."));
+        return;
+      }
+      if (Array.from(next).length < 8) {
+        setError(local("新密码至少需要 8 位。", "New password must be at least 8 characters."));
+        return;
+      }
+      if (next !== confirm) {
+        setError(local("两次输入的新密码不一致。", "New passwords do not match."));
+        return;
+      }
+      if (next === current) {
+        setError(local("新密码不能与当前密码相同。", "New password must be different."));
+        return;
+      }
+      setBusy(true);
+      try {
+        await changePassword(current, next);
+        setCurrent("");
+        setNext("");
+        setConfirm("");
+        setStatus(local("密码已更新，下次登录请使用新密码。", "Password updated. Use the new password next time."));
+      } catch (err) {
+        const token = String(((err && err.code) || "") + " " + ((err && err.message) || "")).toLowerCase();
+        setError(token.includes("invalid_credentials") || token.includes("invalid login")
+          ? local("当前密码不正确。", "Current password is incorrect.")
+          : friendlyError(err));
+      } finally {
+        setBusy(false);
+      }
+    }
+
+    const fields = [
+      ["current", local("当前密码", "Current password"), current, setCurrent, "current-password"],
+      ["next", local("新密码", "New password"), next, setNext, "new-password"],
+      ["confirm", local("确认新密码", "Confirm new password"), confirm, setConfirm, "new-password"],
+    ];
+
+    return (
+      <div className="wd-cm-modal" role="dialog" aria-modal="true">
+        <form className="wd-cm-modal-card wd-cm-password-card" onSubmit={submit}>
+          <div className="wd-cm-modal-head">
+            <div>
+              <h2>{local("修改密码", "Change password")}</h2>
+              <p>{local("需要先验证当前密码；修改后其他设备可能需要重新登录。", "Verify your current password first. Other devices may need to sign in again.")}</p>
+            </div>
+            <button type="button" className="wd-cm-close" onClick={onClose} aria-label={local("关闭", "Close")}>
+              <Icon name="close" size={16} />
+            </button>
+          </div>
+          <div className="wd-cm-modal-body">
+            {fields.map(([key, label, value, setter, autoComplete]) => (
+              <label key={key} className="wd-cm-field">
+                <span>{label}</span>
+                <input
+                  className="wd-cm-input"
+                  type={visible ? "text" : "password"}
+                  value={value}
+                  autoComplete={autoComplete}
+                  onChange={event => setter(event.target.value)}
+                  disabled={busy}
+                />
+              </label>
+            ))}
+            <label className="wd-cm-gate-remember">
+              <input type="checkbox" checked={visible} onChange={event => setVisible(event.target.checked)} />
+              <span>{local("显示密码", "Show passwords")}</span>
+            </label>
+            {error ? <p className="wd-cm-error">{error}</p> : null}
+            {status ? <p className="wd-cm-password-ok">{status}</p> : null}
+          </div>
+          <div className="wd-cm-modal-buttons">
+            <button type="button" className="wd-cm-btn wd-cm-btn-soft" onClick={onClose} disabled={busy}>{local("取消", "Cancel")}</button>
+            <button type="submit" className="wd-cm-btn wd-cm-btn-primary" disabled={busy}>
+              {busy ? local("保存中…", "Saving…") : local("保存新密码", "Save password")}
+            </button>
+          </div>
+        </form>
+      </div>
+    );
+  }
+
   function ProfileEditor({ session, frameId, onSave, onClose }) {
     const [draft, setDraft] = useState(() => ({ ...session, preview: "" }));
     const [status, setStatus] = useState("");
@@ -2750,17 +3224,6 @@ export function installCommunity(ctx, React, options = {}) {
       } finally {
         setBusy(false);
       }
-    }
-
-    function importThemeProfile() {
-      const previous = localProfile?.store?.getSnapshot()?.value;
-      if (!previous) return;
-      const displayName = previous.displayName?.trim();
-        const length = Array.from(displayName || "").length;
-      change({
-        ...(length >= 2 && length <= 16 ? { nickname: displayName } : {}),
-        ...(/^data:image\/(?:png|jpeg|webp);base64,/.test(previous.avatar || "") ? { preview: previous.avatar } : {}),
-      });
     }
 
     async function submit(event) {
@@ -2786,8 +3249,6 @@ export function installCommunity(ctx, React, options = {}) {
           <div className="wd-cm-profile-editor-actions">
             <input ref={fileInput} type="file" accept="image/png,image/jpeg,image/webp" hidden onChange={pickAvatar} />
             <button type="button" className="wd-cm-btn" disabled={busy || !localProfile?.prepareAvatar} onClick={() => fileInput.current?.click()}>{local("更换头像", "Change avatar")}</button>
-            <button type="button" className="wd-cm-btn" disabled={busy || !(draft.preview || draft.avatarPath)} onClick={() => change({ preview: "", avatarPath: "" })}>{local("移除头像", "Remove avatar")}</button>
-            {localProfile?.store ? <button type="button" className="wd-cm-btn" disabled={busy} onClick={importThemeProfile}>{local("导入鲸梦主题旧资料", "Import Whale Dream profile")}</button> : null}
           </div>
         </div>
         <p className="wd-cm-field-hint">{local("保存后，昵称和头像会公开显示在星球帖子和评论中。", "Your saved nickname and avatar appear publicly on Planet posts and comments.")}</p>
@@ -2807,6 +3268,7 @@ export function installCommunity(ctx, React, options = {}) {
   function ProfilePage({ session, store, now, myCommentCount, onOpenPost, onLogout, onBoard, onBack, onSaveProfile }) {
     const [section, setSection] = useState("posts");
     const [editing, setEditing] = useState(false);
+    const [passwordOpen, setPasswordOpen] = useState(false);
     const [frameId, setFrameId] = useState(currentThemeFrame);
     useEffect(() => {
       const update = () => setFrameId(currentThemeFrame());
@@ -2875,12 +3337,16 @@ export function installCommunity(ctx, React, options = {}) {
             <button type="button" className="wd-cm-btn" aria-expanded={editing} onClick={() => setEditing(true)} disabled={editing}>
               <Icon name="edit" size={14} />{local("编辑个人资料", "Edit profile")}
             </button>
+            <button type="button" className="wd-cm-btn wd-cm-btn-ghost" onClick={() => setPasswordOpen(true)}>
+              <Icon name="lock" size={14} />{local("修改密码", "Change password")}
+            </button>
             <button type="button" className="wd-cm-btn wd-cm-btn-ghost" onClick={onLogout}>
               <Icon name="logout" size={14} />{local("退出星球", "Sign out")}
             </button>
           </div>
         </section>
         {editing ? <ProfileEditor session={session} frameId={frameId} onSave={onSaveProfile} onClose={() => setEditing(false)} /> : null}
+        {passwordOpen ? <PasswordEditor onClose={() => setPasswordOpen(false)} /> : null}
         <div className="wd-cm-stat-grid">
           {[
             ["edit", local("帖子", "Posts"), own.length],
@@ -3019,26 +3485,27 @@ export function installCommunity(ctx, React, options = {}) {
         if (!aliveRef.current) return;
         if (!profile) {
           const saved = readPending();
-          let redeemed = null;
-          if (saved && saved.invite && saved.nickname) {
+          const currentEmail = String(auth?.user?.email || "").toLowerCase();
+          let registered = null;
+          if (saved && saved.nickname && (!saved.email || saved.email === currentEmail)) {
             try {
-              redeemed = await redeemInvite(saved.invite, saved.nickname);
+              registered = await registerProfile(saved.nickname);
               clearPending();
             } catch (error) {
-              redeemed = null;
+              registered = null;
             }
           }
           if (!aliveRef.current) return;
-          if (!redeemed) {
+          if (!registered) {
             setState(previous => ({
               ...previous,
               phase: "gate",
               gateMode: "setup",
-              gateNotice: "登录成功，请填写邀请码和昵称完成星球身份绑定。",
+              gateNotice: "登录成功，请填写昵称完成星球身份绑定。",
             }));
             return;
           }
-          profile = redeemed;
+          profile = registered;
         }
         const session = profileToSession(profile);
         const data = await loadCommunity(profile);
@@ -3968,7 +4435,8 @@ export function installCommunity(ctx, React, options = {}) {
 .wd-cm-body-input{min-height:150px;font-size:12.5px;line-height:1.7}
 .wd-cm-counter{font-style:normal;font-size:9.5px;color:var(--wd-cm-dim);font-variant-numeric:tabular-nums}
 .wd-cm-field-hint{margin:-2px 0 0;font-size:9.5px;line-height:1.5;color:var(--wd-cm-dim)}
-.wd-cm-gate-invite{display:flex;flex-direction:column;gap:2px}
+.wd-cm-gate-verify-email{display:flex;align-items:center;gap:8px;padding:9px 11px;border-radius:10px;background:#f4f6ff;color:#3b3f55;font-size:12px;word-break:break-all}
+.wd-cm-gate-verify-email .wd-cm-link-btn{margin-left:auto;flex:none;font-size:11px;color:#5b3df5}
 .wd-cm-link-btn{display:inline-flex;align-items:center;gap:5px;align-self:flex-start;border:0;background:transparent;color:#a9d4ff;font-size:10.5px;cursor:pointer;padding:1px 0}
 .wd-cm-link-btn:hover{color:#d6e9ff}
 .wd-cm-link-btn code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:9.5px;background:rgba(142,200,255,.13);border-radius:4px;padding:0 4px}
@@ -3976,6 +4444,32 @@ export function installCommunity(ctx, React, options = {}) {
 .wd-cm-error{display:flex;align-items:center;gap:6px;margin:0;font-size:10.5px;color:#ff9daf;background:rgba(255,143,163,.1);border:1px solid rgba(255,143,163,.26);border-radius:8px;padding:6px 9px}
 .wd-cm-hint{margin:0;font-size:10px;line-height:1.55;color:var(--wd-cm-dim)}
 .wd-cm-modal{position:absolute;inset:0;z-index:20;display:grid;place-items:center;padding:22px;background:rgba(3,9,20,.64);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.wd-cm-recovery-modal{position:fixed;z-index:1000;overscroll-behavior:contain}
+.wd-cm-password-card{width:min(430px,100%);background:#fff!important;color:#182238;border-color:#dce1ec}
+.wd-cm-password-card .wd-cm-modal-head{padding:18px 22px 13px;border-bottom-color:#e3e8f2}
+.wd-cm-password-card .wd-cm-modal-head h2{color:#182238;font-size:17px}
+.wd-cm-password-card .wd-cm-modal-head p{color:#5a667d;font-size:11.5px;line-height:1.55;margin:4px 0 0}
+.wd-cm-password-card .wd-cm-modal-body{padding:16px 22px 4px;gap:13px}
+.wd-cm-password-card .wd-cm-modal-buttons{padding:12px 22px 20px}
+.wd-cm-password-card .wd-cm-field{margin:0;gap:5px}
+.wd-cm-password-card .wd-cm-field>span{color:#3d4a61;font-size:11.5px}
+.wd-cm-password-card .wd-cm-input{background:#fff;border-color:#9ca8bd;color:#182238;height:40px}
+.wd-cm-password-card .wd-cm-input::placeholder{color:#8a94a8}
+.wd-cm-password-card .wd-cm-input:focus{border-color:#6a5ae0;box-shadow:0 0 0 3px rgba(106,90,224,.12)}
+.wd-cm-password-card .wd-cm-code-input{letter-spacing:.42em;font-size:18px;text-align:center;font-variant-numeric:tabular-nums}
+.wd-cm-password-card .wd-cm-code-input.is-link{letter-spacing:0;font-size:12px;text-align:left;line-height:1.45;word-break:break-all}
+.wd-cm-password-card .wd-cm-link-btn{color:#5b3df5;font-size:11px}
+.wd-cm-password-card .wd-cm-close{color:#5a667d}
+.wd-cm-password-card .wd-cm-close:hover{background:#f1f4fa;color:#182238;border-color:#dce1ec}
+.wd-cm-password-card .wd-cm-hint{margin:0;color:#6b7790;font-size:11px;line-height:1.55}
+.wd-cm-password-card .wd-cm-gate-remember{margin:0;color:#3d4a61;font-size:12px}
+.wd-cm-password-card .wd-cm-error{color:#b4234a;background:#fff1f5;border-color:#ffd3df;font-size:11px}
+.wd-cm-password-card .wd-cm-password-ok{color:#167348;background:#eefaf3;border-color:#c9eeda}
+.wd-cm-password-card .wd-cm-btn-soft{background:#f3f5fa;color:#182238;border-color:#dce1ec}
+.wd-cm-password-card .wd-cm-btn-primary{background:#563de1;color:#fff;box-shadow:0 4px 12px rgba(86,61,225,.22)}
+.wd-cm-password-card .wd-cm-btn-primary:hover:not(:disabled){background:#4730c5}
+.wd-cm-gate-forgot{display:flex;justify-content:flex-end;margin-top:-4px}
+.wd-cm-password-ok{margin:0;font-size:11px;color:#167348;background:rgba(22,115,72,.08);border:1px solid rgba(22,115,72,.2);border-radius:8px;padding:7px 9px}
 .wd-cm-modal-card{width:min(700px,100%);max-height:min(840px,92%);display:flex;flex-direction:column;border:1px solid var(--wd-cm-line-strong);border-radius:22px;background:var(--wd-cm-panel-solid);box-shadow:0 30px 90px rgba(0,0,0,.52);overflow:hidden}
 .wd-cm-modal-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:16px 20px 12px;border-bottom:1px solid var(--wd-cm-line)}
 .wd-cm-modal-head h2{margin:0;font-size:16px;font-weight:760}

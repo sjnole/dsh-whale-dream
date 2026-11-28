@@ -311,7 +311,7 @@
   background: linear-gradient(135deg, #fff, color-mix(in srgb, var(--wd-cm-avatar-color, #7659e8) 30%, #fff));
 }
 .wd-cm-avatar-picture img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.wd-cm-avatar.is-framed .wd-cm-avatar-picture { inset: 25%; width: 50%; height: 50%; }
+.wd-cm-avatar.is-framed .wd-cm-avatar-picture { inset: 15%; width: 70%; height: 70%; }
 .wd-cm-avatar-frame { object-fit: contain; pointer-events: none; }
 
 @container wd-planet (max-width: 1000px) {
