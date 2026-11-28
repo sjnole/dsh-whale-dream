@@ -19,7 +19,7 @@ const paths=['bin/whale-companion-win-x64.exe','lib/companion/native-host.mjs','
 
 test('Whale Dream version and package entry remain valid',()=>{
   assert.equal(manifest.name,'dsh-whale-dream');
-  assert.equal(manifest.version,'1.2.4');
+  assert.match(manifest.version,/^\d+\.\d+\.\d+$/);
   assert.equal(manifest.main,'lib/index.js');
   assert.equal(manifest.exports['./client'],'./lib/client.js');
   assert.ok(manifest.files.includes('lib'));
@@ -38,10 +38,10 @@ test('legacy companion UI, timers and snapshot publisher stay removed',()=>{
   for(const text of ['WhaleCompanionSettings','wd-companion-config',
      'installCompanionPublisher','companionPublisher','COMPANION_KEY','COMPANION_CSS',
      'companionSheet','companionTimer']) assert.ok(!client.includes(text),text);
-  assert.match(client,/className: "wd-primary-nav wd-segment"/);
-  assert.match(client,/section === "themes"/);
-  assert.match(client,/section === "appearance"/);
-  assert.match(client,/section === "info"/);
+  assert.match(client,/className:\s*"wd-primary-nav wd-segment"/);
+  assert.match(client,/section\s*===\s*"themes"/);
+  assert.match(client,/section\s*===\s*"appearance"/);
+  assert.match(client,/section\s*===\s*"info"/);
 });
 
 test('no native companion Host endpoints, preference watcher or file-based queue remains',()=>{

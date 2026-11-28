@@ -1,6 +1,6 @@
 {
     "name":  "dsh-whale-dream",
-    "version":  "1.3.0",
+    "version":  "1.5.0",
     "description":  "鲸梦：主题、动态外观、启动屏、推理圆环、信息栏和实况窗。",
     "type":  "module",
     "license":  "SEE LICENSE IN LICENSE",
@@ -68,7 +68,7 @@
     "scripts":  {
                     "build":  "node build.mjs",
                     "typecheck":  "tsc --noEmit",
-                    "test":  "node --test docs/qa/removal-0.8.71.mjs docs/qa/desktop-usage.mjs",
+                    "test":  "node --test docs/qa/removal-0.8.71.mjs docs/qa/desktop-usage.mjs docs/qa/image-references.mjs docs/qa/planet-profile.mjs",
                     "check":  "npm run prepack \u0026\u0026 npm test",
                     "preview:build":  "node qa/build.mjs",
                     "preview":  "node qa/server.mjs",
